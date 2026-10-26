@@ -43,11 +43,11 @@ If FFmpeg / FFprobe is missing, install an FFmpeg version that includes the `ass
 ## 4) Render the Short
 
 ```bash
-python3 render.py --output output/rumy_why_002.mp4
+python3 render.py --output output/revision_v2/rumy_why_002_v2.mp4
 ```
 
 Output: H.264, AAC, portrait 1080x1920, 30fps, ~70 seconds, hard cuts, editorial zooms, burnt-in captions, plus consistent animated engineering-yellow shapes (arrows, reticles, rulers, underlines) and fact labels.
-A sidecar report is written to `output/render_report.json`.
+The Revision v2 report is written to `output/revision_v2/render_report.json`; the previous final and report are retained.
 
 ## 5) Adjust timings
 
@@ -90,3 +90,15 @@ This project now includes `.agents/skills/rumy-why-video-editing/SKILL.md`. When
 
 ### Motion graphics revision v2
 Titles are 10–15% larger and placed at top-center. Unverified arrows, circles and measurement lines are disabled by default; add them back only after alignment/tracking review against actual footage. See `REFERENCE_OVERLAY_SOURCES.md` for possible authentic photo inserts and their rights caveats.
+
+## Applied Revision v2 workflow
+
+The existing original final at `output/rumy_why_002.mp4` is preserved. The renderer now defaults to `output/revision_v2/rumy_why_002_v2.mp4`. To review first:
+
+```bash
+export PYTHONDONTWRITEBYTECODE=1 XDG_CACHE_HOME=/workspace/.cache
+python3 render.py --width 360 --height 640 --preset veryfast --output output/revision_v2/preview/rumy_why_002_v2_preview.mp4
+python3 render.py --output output/revision_v2/rumy_why_002_v2.mp4
+```
+
+Use two available CPU cores via `taskset` when bounding resources on this cloud machine. Titles use the v2 top-center layout. Narration timing from the previous edit is retained. Only the reviewed cooling-pipe arrow uses manually interpolated screen-space keys; other geometry stays off. No archival photos are included. Reports are written beside each export, preserving the old report.

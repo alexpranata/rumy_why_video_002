@@ -10,7 +10,7 @@ Read `RUN.md`, `README.md`, `scenes.json`, `voiceover.txt`, `captions_rough.srt`
 2. Run `python3 render.py --check`. Missing media is EXPECTED in the template ZIP.
 3. Run `python3 -m unittest discover -s tests -v` to check deterministic helper functionality.
 4. Improve the pipeline only where it benefits final export quality or resiliency. Prefer incremental edits over unnecessary rewrites. Read source media only from `assets/video` and `assets/audio`.
-5. If supplied media is available, produce `output/rumy_why_002.mp4` and inspect `output/render_report.json`.
+5. If supplied media is available, produce `output/revision_v2/rumy_why_002_v2.mp4` and inspect `output/revision_v2/render_report.json`.
 6. If media is missing, do not fabricate, scrape, download, or generate substitute videos, speech, SFX, or music. Tell the user exactly what is missing.
 7. Voiceover timing must be checked against SRT. Scene-timed captions are rough placeholders, not word-aligned transcripts.
 8. Maintain early-1930s scene chronology and avoid representing AI reconstructions as authentic archive footage.

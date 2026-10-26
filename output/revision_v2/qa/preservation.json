@@ -1,0 +1,375 @@
+{
+  "previous_final": {
+    "path": "output/rumy_why_002.mp4",
+    "sha256": "a3d723c3ad2071d4d23f856fa4df0d30231ab843f9967e55936b934e279a3d02",
+    "size": 63121931
+  },
+  "source_media": [
+    {
+      "path": "assets/audio/voiceover.wav",
+      "duration": "69.250612",
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "sha256": "79b9f12ee7ac72b8bc37e374051d85618b4e5433cbf62b12b48fb7cfb193db20"
+    },
+    {
+      "path": "assets/video/scene_01.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "f0e151d053567c5df7f421cdf37524cdefe76e22f3d4eff4caed3b363041051b"
+    },
+    {
+      "path": "assets/video/scene_02.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "e9b822f0b6bdb6cc03dd3fb3c59efcde38a689a9076e6a7e53e8fc62decf0d39"
+    },
+    {
+      "path": "assets/video/scene_03.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "d4eb594acfd9c38d6a3db17bc8d50a017525cb4b49f5d14c85c834e4cb801e80"
+    },
+    {
+      "path": "assets/video/scene_04.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "3224aba655505dd1e8a1bb0a4897aa5b53c971c5ff4f6500a2cb8fceb61e1ecc"
+    },
+    {
+      "path": "assets/video/scene_05.mp4",
+      "duration": "6.016000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "b66436c56f84f0ce5b9aa2a81601eadf10b774721bdd1231def3faa4ef7c1d29"
+    },
+    {
+      "path": "assets/video/scene_06.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "a834b34a54d71fb66b0c1859738e01757544c5aeddc084a446f1dfbdabd499c1"
+    },
+    {
+      "path": "assets/video/scene_07.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "dcbd8431f22f51e129cf6861fd7f3cdedbb721fce6ca76f13840306cfaed96cc"
+    },
+    {
+      "path": "assets/video/scene_08.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "971f4505c5f512fb37ab41203bc5651fbb1b3ac3046d092364a9a3981aaec21b"
+    },
+    {
+      "path": "assets/video/scene_09.mp4",
+      "duration": "6.016000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "5d02f7ff109552c38dcebac620a70945dd8eb21e133d97b2a71e7b9b3548f40b"
+    },
+    {
+      "path": "assets/video/scene_10.mp4",
+      "duration": "6.016000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "417b172ca3e9236368d68e1af4b99907d4d15ecc1396a7b0d53081eb89dbc8ad"
+    },
+    {
+      "path": "assets/video/scene_11.mp4",
+      "duration": "6.016000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "9bd2e206b5284f6528213e028e36ca92a243db42a046c54d470832da87c5325f"
+    },
+    {
+      "path": "assets/video/scene_12.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "c1f00805752f603040602315e0512a4ac8eebccbc1c8bfc12bed706c23590059"
+    },
+    {
+      "path": "assets/video/scene_13.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "9e69f28beb02f7e4c3b65f90d5365f155e6f1d001bde732cdfaa59c4f5fe386c"
+    },
+    {
+      "path": "assets/video/scene_14.mp4",
+      "duration": "8.000000",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 720,
+          "height": 1280,
+          "r_frame_rate": "24/1",
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "width": null,
+          "height": null,
+          "r_frame_rate": "0/0",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ],
+      "sha256": "bc21ba2ce7904d2248180e5ba05f20c22e560402b1f3de1924625c863aeab6f9"
+    }
+  ]
+}
