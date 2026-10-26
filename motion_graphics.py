@@ -115,6 +115,15 @@ def validate(config:dict) -> None:
                 raise ValueError(f'scene {a["scene"]} {k} is outside 5%-95% bounds')
         if not str(a.get('label','')).strip():
             raise ValueError(f'scene {a["scene"]} has empty label')
+        keys=a.get('geometry_keyframes', [])
+        for i,key in enumerate(keys):
+            if i and key['time_sec'] <= keys[i-1]['time_sec']:
+                raise ValueError('Geometry key times must increase')
+            for name in ('x','y','target_x','target_y'):
+                if not .05 <= float(key[name]) <= .95:
+                    raise ValueError('Geometry key is outside screen safe limits')
+        if len(keys)==1:
+            raise ValueError('Provide at least two geometry keys')
 
 
 def write_motion_ass(path:Path, config:dict, scenes:list[dict], width:int=1080,
@@ -154,8 +163,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         if dur < 1.2:
             cursor+=dur
             continue
-        start=cursor+min(float(annotation.get('enter_sec',0.42)),dur*.2)
+        start=cursor+max(0,float(annotation.get('enter_sec',0.42)))
         end=cursor+dur-min(float(annotation.get('exit_before_end_sec',0.35)),dur*.12)
+        if 'hold_sec' in annotation:
+            end=min(end,start+float(annotation['hold_sec']))
         if end <= start+.3:
             cursor+=dur
             continue
@@ -177,8 +188,33 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             geometry=bar(fx,fy,fx+float(annotation.get('span',290))*sx,fy,thickness)
         # Unverified draft coordinates must never produce misleading floating geometry.
         if annotation.get('geometry_verified') is True:
-            lines.append(event(2,start,end,'Highlight',
-                               f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\fad(220,280)',geometry))
+            keys=annotation.get('geometry_keyframes', [])
+            if keys:
+                # Manual screen-space keys, interpolated at export frame cadence.
+                # Never describe these as automatic feature tracking.
+                fps=int(config.get('geometry_fps',30))
+                for frame in range(math.ceil((end-start)*fps)):
+                    a=start+frame/fps
+                    b=min(end,a+1/fps)
+                    local=a-cursor
+                    left=keys[0]; right=keys[-1]
+                    for k1,k2 in zip(keys,keys[1:]):
+                        if k1['time_sec'] <= local <= k2['time_sec']:
+                            left,right=k1,k2
+                            break
+                    ratio=max(0,min(1,(local-left['time_sec'])/(right['time_sec']-left['time_sec'])))
+                    value=lambda name: float(left[name])+(float(right[name])-float(left[name]))*ratio
+                    if typ != 'arrow':
+                        raise ValueError('Keyframed geometry currently supports arrows only')
+                    shape=arrow(width*value('x'),height*value('y'),width*value('target_x'),
+                                height*value('target_y'),thickness,max(12,round(24*fscale)))
+                    opacity=min(1,(a-start)/.22,(end-a)/.28)
+                    alpha=round(255*(1-max(0,opacity)))
+                    lines.append(event(2,a,b,'Highlight',
+                        f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\alpha&H{alpha:02X}&',shape))
+            else:
+                lines.append(event(2,start,end,'Highlight',
+                                   f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\fad(220,280)',geometry))
         if with_labels:
             label=text_safe(annotation['label']).upper()
             # Upper center title: constant placement, regardless of annotation geometry.

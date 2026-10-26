@@ -13,6 +13,9 @@ class MotionGraphicsTests(unittest.TestCase):
     def setUp(self):
         self.scenes=json.loads((ROOT/'scenes.json').read_text())['scenes']
         self.config=motion_graphics.load(ROOT/'motion_graphics.json')
+        # Exercise the safe default independently of the reviewed production keys.
+        for a in self.config['annotations']:
+            a['geometry_verified']=False
 
     def test_exact_yellow_brand(self):
         self.assertEqual(motion_graphics.ass_color('#FFD400'),'&H0000D4FF&')
@@ -66,6 +69,34 @@ class MotionGraphicsTests(unittest.TestCase):
         self.assertIn("ass=filename='_build/motion.ass'",graph)
         self.assertIn("ass=filename='_build/captions.ass'",graph)
         self.assertLess(graph.index('_build/motion.ass'),graph.index('_build/captions.ass'))
+
+    def test_keyframed_geometry_requires_verification(self):
+        c=json.loads(json.dumps(self.config))
+        a=c['annotations'][10]
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'motion.ass'
+            motion_graphics.write_motion_ass(p,c,self.scenes)
+            self.assertNotIn('\\p1',p.read_text())
+            a['geometry_verified']=True
+            motion_graphics.write_motion_ass(p,c,self.scenes)
+            drawings=[line for line in p.read_text().splitlines() if '\\p1' in line]
+            self.assertGreater(len(drawings),30)
+            self.assertNotEqual(drawings[10].split('}',1)[1],drawings[-10].split('}',1)[1])
+
+    def test_invalid_key_order(self):
+        c=json.loads(json.dumps(self.config))
+        c['annotations'][10]['geometry_keyframes'][1]['time_sec']=0
+        with self.assertRaises(ValueError):
+            motion_graphics.validate(c)
+
+    def test_late_title_is_not_clamped_to_scene_start(self):
+        c=json.loads(json.dumps(self.config))
+        c['annotations'][0].update(enter_sec=3,hold_sec=1)
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'motion.ass'
+            motion_graphics.write_motion_ass(p,c,self.scenes)
+            first=next(line for line in p.read_text().splitlines() if line.startswith('Dialogue:'))
+            self.assertEqual(first.split(',')[1:3],['0:00:03.16','0:00:04.00'])
 
 if __name__=='__main__':
     unittest.main()

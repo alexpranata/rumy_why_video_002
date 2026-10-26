@@ -20,3 +20,14 @@ The supplied 14 Google Flow clips are illustrative 3D/video re-creations. Do not
 - Add a data-driven `reference_overlay` manifest or adapt `render.py` to show the optional still in 1–3 second overlays. Use 9:16 friendly placement, mild Ken Burns movement, subtle border, and short `SOURCE: ...` credit. Keep captions unobstructed.
 - Do not fabricate the existence of downloaded photos or claim they have been included when only links are provided. No paid image/video generation APIs.
 - Verify that archival photos match the narrated construction step, and distinguish them visually from AI video reconstructions.
+
+## Revision v2 review in this environment
+
+The two official source families were reviewed from this supplied manifest. Live requests to the Bureau of Reclamation gallery and Library of Congress were rejected by the environment proxy (CONNECT 403), so image-specific content, creator, download files and current rights statements could not be independently verified. No photos were downloaded or added to the render.
+
+- Historic Views: promising for scenes 02, 04–08 and 13, subject to checking each photograph’s creator, date, described construction step and rights. Federal hosting alone does not clear all images.
+- Dam Views: suitable only for a modern reveal, not evidence of 1930s construction; verify the individual creator and terms.
+- LOC 2018702437: a modern 2018 image candidate; the supplied “No known restrictions on publication” advisory is not a blanket warranty or evidence that this is a 1930s archival photograph. Confirm the live item and credit before use.
+- LOC 2004680467: excluded while rights status remains unevaluated.
+
+Optional photo inserts are not enabled in this revision. Any future image insert needs a rights record and a separate data-driven overlay implementation with visible source credit.

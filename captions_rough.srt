@@ -1,55 +1,167 @@
 1
-00:00:00,000 --> 00:00:05,000
-How do you build a 726-foot dam inside a flowing river?
+00:00:00,000 --> 00:00:00,850
+How do you build
 
 2
-00:00:05,000 --> 00:00:10,000
-In the 1930s, engineers faced this challenge at Black Canyon.
+00:00:00,850 --> 00:00:03,110
+a 726-foot dam
 
 3
-00:00:10,000 --> 00:00:15,000
-Before building anything, they had to move the Colorado River.
+00:00:03,110 --> 00:00:04,550
+inside a flowing river?
 
 4
-00:00:15,000 --> 00:00:20,000
-Crews blasted four huge tunnels through the canyon walls.
+00:00:04,970 --> 00:00:06,410
+In the 1930s,
 
 5
-00:00:20,000 --> 00:00:25,000
-Combined, those tunnels stretched almost three miles around the worksite.
+00:00:06,410 --> 00:00:08,110
+engineers faced this challenge
 
 6
-00:00:25,000 --> 00:00:30,000
-Next, temporary cofferdams blocked the river and kept the foundation dry.
+00:00:08,110 --> 00:00:09,110
+at Black Canyon.
 
 7
-00:00:30,000 --> 00:00:35,000
-Excavators dug through sediment until they reached solid bedrock.
+00:00:09,560 --> 00:00:10,970
+Before building anything,
 
 8
-00:00:35,000 --> 00:00:40,000
-Above them, high scalers hung from ropes, clearing unstable canyon walls.
+00:00:10,970 --> 00:00:12,180
+they had to move
 
 9
-00:00:40,000 --> 00:00:45,000
-In 1933, crews began pouring concrete, not as one giant slab,
+00:00:12,180 --> 00:00:13,410
+the Colorado River.
 
 10
-00:00:45,000 --> 00:00:50,000
-but in hundreds of interlocking blocks, rising layer by layer.
+00:00:13,710 --> 00:00:16,190
+Crews blasted four huge tunnels
 
 11
-00:00:50,000 --> 00:00:55,000
-Engineers circulated chilled water through embedded pipes to prevent overheating.
+00:00:16,190 --> 00:00:17,500
+through the canyon walls.
 
 12
-00:00:55,000 --> 00:01:00,000
-The dam alone required 3.25 million cubic yards of concrete.
+00:00:17,710 --> 00:00:19,650
+Combined, those tunnels stretched
 
 13
-00:01:00,000 --> 00:01:05,000
-The concrete was finished in 1935; the entire project in 1936.
+00:00:19,650 --> 00:00:21,110
+almost three miles
 
 14
-00:01:05,000 --> 00:01:10,000
-And the result was Hoover Dam, a 726-foot giant built by moving a river.
+00:00:21,110 --> 00:00:22,040
+around the worksite.
+
+15
+00:00:22,460 --> 00:00:24,540
+Next, temporary cofferdams
+
+16
+00:00:24,540 --> 00:00:25,460
+blocked the river
+
+17
+00:00:25,460 --> 00:00:27,110
+and kept the foundation dry.
+
+18
+00:00:27,500 --> 00:00:29,320
+Excavators dug through sediment
+
+19
+00:00:29,320 --> 00:00:31,280
+until they reached solid bedrock.
+
+20
+00:00:31,570 --> 00:00:33,220
+Above them, high scalers
+
+21
+00:00:33,220 --> 00:00:34,170
+hung from ropes,
+
+22
+00:00:34,170 --> 00:00:36,450
+clearing unstable canyon walls.
+
+23
+00:00:36,790 --> 00:00:38,270
+In 1933,
+
+24
+00:00:38,270 --> 00:00:40,030
+crews began pouring concrete,
+
+25
+00:00:40,260 --> 00:00:42,070
+not as one giant slab,
+
+26
+00:00:42,070 --> 00:00:43,100
+but in hundreds
+
+27
+00:00:43,100 --> 00:00:44,720
+of interlocking blocks,
+
+28
+00:00:44,720 --> 00:00:46,260
+rising layer by layer.
+
+29
+00:00:46,720 --> 00:00:48,760
+Engineers circulated chilled water
+
+30
+00:00:48,760 --> 00:00:49,940
+through embedded pipes
+
+31
+00:00:49,940 --> 00:00:51,090
+to prevent overheating.
+
+32
+00:00:51,460 --> 00:00:52,870
+The dam alone required
+
+33
+00:00:52,870 --> 00:00:55,700
+3.25 million cubic yards
+
+34
+00:00:55,700 --> 00:00:56,380
+of concrete.
+
+35
+00:00:56,760 --> 00:00:57,930
+The concrete was finished
+
+36
+00:00:57,930 --> 00:00:59,370
+in 1935;
+
+37
+00:00:59,590 --> 00:01:00,800
+the entire project
+
+38
+00:01:00,800 --> 00:01:02,240
+in 1936.
+
+39
+00:01:02,530 --> 00:01:03,740
+And the result was
+
+40
+00:01:03,740 --> 00:01:04,630
+Hoover Dam,
+
+41
+00:01:04,960 --> 00:01:07,320
+a 726-foot giant
+
+42
+00:01:07,320 --> 00:01:09,200
+built by moving a river.

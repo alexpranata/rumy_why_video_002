@@ -22,9 +22,14 @@ class RenderHelpers(unittest.TestCase):
 
     def test_srt(self):
         entries = render.read_srt(ROOT/'captions_rough.srt')
-        self.assertEqual(len(entries), 14)
+        self.assertGreaterEqual(len(entries), 14)
         self.assertEqual(entries[0][0], 0)
-        self.assertEqual(entries[-1][1], 70)
+        self.assertLessEqual(entries[-1][1], 70)
+        for start, end, text in entries:
+            self.assertGreater(end, start)
+            self.assertTrue(text.strip())
+        for previous, current in zip(entries, entries[1:]):
+            self.assertLessEqual(previous[1], current[0])
 
     def test_ass_and_filters(self):
         scenes = json.loads((ROOT/'scenes.json').read_text())['scenes']

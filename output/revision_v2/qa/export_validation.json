@@ -1,0 +1,47 @@
+{
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "duration": "70.000000",
+        "nb_frames": "2100"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0",
+        "duration": "70.000000",
+        "nb_frames": "3283"
+      }
+    ],
+    "format": {
+      "duration": "70.000000",
+      "size": "62513659"
+    }
+  },
+  "full_decode_exit_code": 0,
+  "black_intervals_detected": [],
+  "black_detection_settings": {
+    "min_duration_sec": 0.1,
+    "pixel_threshold": 0.03,
+    "picture_threshold": 0.98
+  },
+  "unit_tests_passed": 13,
+  "original_media_unchanged": 15,
+  "previous_final_unchanged": true,
+  "enabled_geometry_scenes": [
+    11
+  ],
+  "geometry_review": "Five manual source keys and five preview frames inspected; not automatic tracking",
+  "archival_photos_included": false,
+  "caption_phrases": 42,
+  "preview_scene_samples_reviewed": 14,
+  "final_mp4_sha256": "d263232cbc63b132e13171e32ee8a06df213a6f9512aaec9a9b3d959c0ccd050"
+}

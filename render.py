@@ -94,7 +94,7 @@ def write_ass(path: Path, captions: list[tuple[float, float, str]],
     c_margin = round(h * .22)
     t_margin = round(h * .24)
     header = f'''[Script Info]
-Title: RUMY WHY 002 captions (rough; verify against narration)
+Title: RUMY WHY 002 narration captions
 ScriptType: v4.00+
 PlayResX: {w}
 PlayResY: {h}
@@ -104,7 +104,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Narration,DejaVu Sans,{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.085))},1,2,{int(w*.075)},{int(w*.075)},{c_margin},1
-Style: Callout,DejaVu Sans,{max(17, int(size*1.10))},&H0000E7FF,&H0000E7FF,&H00000000,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.09))},1,8,{int(w*.07)},{int(w*.07)},{t_margin},1
+Style: Callout,DejaVu Sans,{max(17, int(size*1.10))},&H0000D4FF,&H0000D4FF,&H0023150B,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.09))},1,8,{int(w*.07)},{int(w*.07)},{t_margin},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -150,7 +150,7 @@ def build_filter(scenes: list[dict[str, Any]], fps: int, w: int, h: int,
                 zoom = f"min(1.095,1.0+on*{.095/max(1, dur*fps-1):.8f})"
             base += (f",zoompan=z='{zoom}':d=1:"
                      f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={w}x{h}:fps={fps}")
-        base += f',trim=duration={dur:.4f},setpts=PTS-STARTPTS,format=yuv420p[v{i}]'
+        base += f',trim=end_frame={round(dur*fps)},setpts=PTS-STARTPTS,format=yuv420p[v{i}]'
         filters.append(base)
     filters.append(''.join(f'[v{i}]' for i in range(len(scenes))) + f'concat=n={len(scenes)}:v=1:a=0[joined]')
     current = 'joined'
@@ -179,7 +179,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument('--video-dir', type=Path, default=Path('assets/video'))
     ap.add_argument('--voice', type=Path, default=Path('assets/audio/voiceover.wav'))
     ap.add_argument('--music', type=Path, default=Path('assets/audio/music.mp3'))
-    ap.add_argument('--output', type=Path, default=Path('output/rumy_why_002.mp4'))
+    ap.add_argument('--output', type=Path, default=Path('output/revision_v2/rumy_why_002_v2.mp4'))
     ap.add_argument('--srt', type=Path, default=Path('captions_rough.srt'))
     ap.add_argument('--check', action='store_true', help='Validate structure and list missing media (returns success).')
     ap.add_argument('--no-captions', action='store_true')
@@ -267,9 +267,9 @@ def main() -> int:
     voice_len = seconds(voice_meta)
     if not any(s.get('codec_type')=='audio' for s in voice_meta.get('streams',[])):
         raise ValueError(f'Voiceover contains no audio stream: {voice}')
-    if voice_len > total+0.25:
+    if voice_len > total:
         raise ValueError(f'Voiceover length {voice_len:.2f}s exceeds timeline {total:.2f}s. Retime scenes or rerecord voiceover; script will not cut narration.')
-    warnings = ['captions_rough.srt is scene-timed and not word-aligned. Review voice and subtitle sync manually.']
+    warnings = ['Captions use local forced-alignment estimates. Confirm timing by listening before publication.']
     if voice_len < total-2:
         warnings.append(f'Voiceover ends {total-voice_len:.1f}s before video end; trailing section will be silent except optional music.')
     if not args.no_graphics:
@@ -316,7 +316,7 @@ def main() -> int:
     report = {'project':data.get('project'),'output':str(output),'output_duration_sec':round(seconds(out_meta),3),
               'target_duration_sec':total,'voice_duration_sec':round(voice_len,3),
               'dimensions':f'{args.width}x{args.height}','fps':args.fps,'clips':details,'warnings':warnings,
-              'captions': 'rough SRT burned in' if ass_name else 'off', 'music_used':music.is_file(),
+              'captions': 'phrase-timed SRT burned in' if ass_name else 'off', 'music_used':music.is_file(),
               'motion_graphics': 'yellow ASS overlays' if motion_name else 'off',
               'motion_graphics_config': str(graphics_config) if motion_name else None,
               'annotation_warning': 'Positions are not tracked: verify every arrow, ring, and bracket against real footage.' if motion_name else None}
