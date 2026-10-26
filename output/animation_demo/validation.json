@@ -1,0 +1,30 @@
+{
+  "export": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "30/1",
+        "nb_frames": "240"
+      }
+    ],
+    "format": {
+      "duration": "8.000000",
+      "size": "775537"
+    }
+  },
+  "full_decode_passed": true,
+  "original_source_files_preserved": 15,
+  "previous_v1_final_preserved": true,
+  "previous_v2_final_preserved": true,
+  "source_3d_render_resolution": "540x960",
+  "composite_export_resolution": "1080x1920",
+  "native_3d_upscaled": true,
+  "has_audio": false,
+  "source": "Original procedural Blender geometry and local typography; no external models or footage",
+  "sha256": "a3cd4da6abdb2456ec33a7bf69d83e303f0cf630bb61f4af36cbbcd7a9cc5f53"
+}
