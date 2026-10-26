@@ -1,0 +1,26 @@
+[
+  {
+    "time": 1.8,
+    "local_bank_inliers": 400,
+    "median_water_minus_bank": [
+      0.06423823036601561,
+      -0.5409973582154635
+    ]
+  },
+  {
+    "time": 2.6,
+    "local_bank_inliers": 346,
+    "median_water_minus_bank": [
+      0.11327005073474083,
+      -0.5463622662203989
+    ]
+  },
+  {
+    "time": 3.4,
+    "local_bank_inliers": 361,
+    "median_water_minus_bank": [
+      0.04100441512548514,
+      -0.2561260293265377
+    ]
+  }
+]

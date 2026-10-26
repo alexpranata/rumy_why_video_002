@@ -83,6 +83,39 @@ class MotionGraphicsTests(unittest.TestCase):
             self.assertNotIn('BLACK CANYON',text)
             self.assertEqual(text.count('\\an8\\move('),1)
 
+    def test_advanced_flow_is_gated_and_moves(self):
+        c=json.loads(json.dumps(self.config));a=c['annotations'][1]
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'flow.ass'
+            motion_graphics.write_motion_ass(p,c,self.scenes,with_labels=False)
+            self.assertNotIn('\\p1',p.read_text())
+            a['geometry_verified']=True
+            motion_graphics.write_motion_ass(p,c,self.scenes,with_labels=False)
+            shapes=[line.split('}',1)[1] for line in p.read_text().splitlines() if '\\p1' in line]
+            self.assertGreater(len(shapes),90)
+            self.assertGreater(len(set(shapes)),30)
+
+    def test_dimension_count_reaches_published_height(self):
+        c=json.loads(json.dumps(self.config));c['annotations'][13]['geometry_verified']=True
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'height.ass'
+            motion_graphics.write_motion_ass(p,c,self.scenes,with_labels=False)
+            text=p.read_text()
+            self.assertIn('726 FT',text)
+            self.assertIn('221 m',text)
+            self.assertIn('TOTAL HEIGHT',text)
+            self.assertIn('\\p1',text)
+
+    def test_mismatched_flow_keys_rejected(self):
+        c=json.loads(json.dumps(self.config));c['annotations'][1]['flow_path_keyframes'][1]['points'].pop()
+        with self.assertRaises(ValueError):motion_graphics.validate(c)
+
+    def test_centerline_curve_passes_endpoints(self):
+        points=[(.2,.3),(.4,.5),(.6,.4)]
+        curve=motion_graphics.smooth_path(points)
+        for actual,expected in zip(curve[0],points[0]):self.assertAlmostEqual(actual,expected)
+        for actual,expected in zip(curve[-1],points[-1]):self.assertAlmostEqual(actual,expected)
+
     def test_keyframed_geometry_requires_verification(self):
         c=json.loads(json.dumps(self.config))
         a=c['annotations'][10]

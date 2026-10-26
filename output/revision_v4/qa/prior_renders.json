@@ -1,0 +1,14 @@
+[
+  {
+    "path": "output/rumy_why_002.mp4",
+    "sha256": "a3d723c3ad2071d4d23f856fa4df0d30231ab843f9967e55936b934e279a3d02"
+  },
+  {
+    "path": "output/revision_v2/rumy_why_002_v2.mp4",
+    "sha256": "d263232cbc63b132e13171e32ee8a06df213a6f9512aaec9a9b3d959c0ccd050"
+  },
+  {
+    "path": "output/revision_v3/final/rumy_why_002_v3_final.mp4",
+    "sha256": "0f7e65d78c1d8356ee3af20ba348c0dc2c91485c3532fb3e1851df18167bbde9"
+  }
+]
