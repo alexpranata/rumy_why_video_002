@@ -93,6 +93,69 @@ def event(layer:int,start:float,end:float,style:str,override:str,content:str) ->
     return f'Dialogue: {layer},{clock(start)},{clock(end)},{style},,0,0,0,,{{{override}}}{content}\n'
 
 
+def interpolate_key(keys:list[dict], time:float) -> dict:
+    if time <= keys[0]['time_sec']:
+        return keys[0]
+    if time >= keys[-1]['time_sec']:
+        return keys[-1]
+    left,right=next((a,b) for a,b in zip(keys,keys[1:]) if a['time_sec']<=time<=b['time_sec'])
+    ratio=(time-left['time_sec'])/(right['time_sec']-left['time_sec'])
+    result={}
+    for key,value in left.items():
+        if key=='points':
+            result[key]=[[x+(u-x)*ratio,y+(v-y)*ratio] for (x,y),(u,v) in zip(value,right[key])]
+        elif isinstance(value,(int,float)):
+            result[key]=value+(right[key]-value)*ratio
+    return result
+
+
+def smooth_path(points:list, samples:int=64) -> list:
+    """Catmull-Rom interpolation through manually placed river centerline anchors."""
+    result=[]
+    for i in range(samples):
+        position=i/(samples-1)*(len(points)-1);j=min(len(points)-2,int(position));t=position-j
+        p0=points[max(0,j-1)];p1=points[j];p2=points[j+1];p3=points[min(len(points)-1,j+2)]
+        result.append(tuple(.5*((2*b)+(-a+c)*t+(2*a-5*b+4*c-d)*t*t+(-a+3*b-3*c+d)*t*t*t)
+                            for a,b,c,d in zip(p0,p1,p2,p3)))
+    return result
+
+
+def advanced_geometry(annotation:dict,cursor:float,start:float,end:float,width:int,height:int,accent:str) -> list[str]:
+    lines=[];scale=min(width/1080,height/1920);fps=30
+    for frame in range(math.ceil((end-start)*fps)):
+        a=start+frame/fps;b=min(end,a+1/fps);local=a-cursor;elapsed=a-start
+        opacity=max(0,min(1,elapsed/.18,(end-a)/.22));alpha=round(255*(1-opacity))
+        tags=f'\\an7\\pos(0,0)\\p1\\bord1\\shad0\\3c&H0023150B&\\1c{accent}\\alpha&H{alpha:02X}&'
+        if 'flow_path_keyframes' in annotation:
+            key=interpolate_key(annotation['flow_path_keyframes'],local)
+            points=smooth_path([(x*width,y*height) for x,y in key['points']])
+            reveal=min(1,elapsed/.55);stop=max(2,round(reveal*len(points)))
+            path=' '.join(bar(*p,*q,max(1,3*scale)) for p,q in zip(points[:stop],points[1:stop]))
+            lines.append(event(2,a,b,'Highlight',tags+f'\\alpha&H{max(144,alpha):02X}&',path))
+            for n in range(3):
+                position=((elapsed/1.6+n/3)%1)*(len(points)-1)
+                tip=min(len(points)-1,int(position));tail=max(0,tip-6)
+                if tip<=tail or tip>=stop:
+                    continue
+                lines.append(event(2,a,b,'Highlight',tags,
+                    arrow(*points[tail],*points[tip],max(2,7*scale),max(12,32*scale))))
+        else:
+            key=interpolate_key(annotation['dimension_keyframes'],local)
+            x=key['x']*width;y1=key['top_y']*height;y2=key['bottom_y']*height
+            reveal=min(1,elapsed/.5);tip=y1+(y2-y1)*reveal;weight=max(2,5*scale)
+            shape=bar(x,y1,x,tip,weight)+' '+bar(x-18*scale,y1,x+18*scale,y1,weight)
+            if reveal>=1:
+                shape+=' '+bar(x-18*scale,y2,x+18*scale,y2,weight)
+            lines.append(event(2,a,b,'Highlight',tags,shape))
+            number=round(726*min(1,elapsed/.65));cx=key['label_x']*width;cy=(y1+y2)/2
+            labeltags=f'\\an5\\pos({cx:.1f},{cy:.1f})\\fs{64*scale:.1f}\\bord{max(1,3*scale):.1f}\\1c{accent}\\alpha&H{alpha:02X}&'
+            lines.append(event(3,a,b,'Highlight',labeltags,f'{number} FT'))
+            if elapsed>=.65:
+                lines.append(event(3,a,b,'Micro',f'\\an5\\pos({cx:.1f},{cy+58*scale:.1f})\\fs{34*scale:.1f}\\alpha&H{alpha:02X}&','221 m'))
+                lines.append(event(3,a,b,'Micro',f'\\an5\\pos({cx:.1f},{cy-57*scale:.1f})\\fs{24*scale:.1f}\\alpha&H{alpha:02X}&','TOTAL HEIGHT'))
+    return lines
+
+
 def validate(config:dict) -> None:
     if config.get('accent_color') != YELLOW:
         raise ValueError(f'Brand accent must be {YELLOW} for this template')
@@ -124,6 +187,20 @@ def validate(config:dict) -> None:
                     raise ValueError('Geometry key is outside screen safe limits')
         if len(keys)==1:
             raise ValueError('Provide at least two geometry keys')
+        for field in ('flow_path_keyframes','dimension_keyframes'):
+            extra=a.get(field,[])
+            if extra and len(extra)<2:
+                raise ValueError('Animated geometry needs at least two keys')
+            for i,key in enumerate(extra):
+                if i and key['time_sec']<=extra[i-1]['time_sec']:
+                    raise ValueError('Animated geometry key times must increase')
+                if field=='flow_path_keyframes':
+                    if len(key['points'])<3 or len(key['points'])!=len(extra[0]['points']):
+                        raise ValueError('Flow paths need matching sets of at least three anchors')
+                    if any(not .05<=float(v)<=.95 for point in key['points'] for v in point):
+                        raise ValueError('Flow anchor outside screen safe bounds')
+                elif not (0<key['top_y']<key['bottom_y']<.95 and .05<key['x']<.95 and .05<key['label_x']<.95):
+                    raise ValueError('Invalid dimension endpoints')
 
 
 def write_motion_ass(path:Path, config:dict, scenes:list[dict], width:int=1080,
@@ -189,7 +266,9 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         # Unverified draft coordinates must never produce misleading floating geometry.
         if annotation.get('geometry_verified') is True:
             keys=annotation.get('geometry_keyframes', [])
-            if keys:
+            if 'flow_path_keyframes' in annotation or 'dimension_keyframes' in annotation:
+                lines.extend(advanced_geometry(annotation,cursor,start,end,width,height,accent))
+            elif keys:
                 # Manual screen-space keys, interpolated at export frame cadence.
                 # Never describe these as automatic feature tracking.
                 fps=int(config.get('geometry_fps',30))

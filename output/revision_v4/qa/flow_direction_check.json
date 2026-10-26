@@ -1,0 +1,90 @@
+[
+  {
+    "scene": 2,
+    "time": 2.2,
+    "median_residual_pixels": [
+      0.15593617402555537,
+      -0.5115214428078616
+    ],
+    "camera_affine": [
+      [
+        1.011697386376568,
+        -8.295587132818951e-05,
+        -3.5035996074129785
+      ],
+      [
+        8.295587132818951e-05,
+        1.011697386376568,
+        -2.6989781877682835
+      ]
+    ],
+    "background_inliers": 1420,
+    "note": "Automatic optical-flow clue, not hydraulic verification."
+  },
+  {
+    "scene": 2,
+    "time": 3.5,
+    "median_residual_pixels": [
+      0.12004185001752887,
+      -0.3958390551063644
+    ],
+    "camera_affine": [
+      [
+        1.0101669044141375,
+        0.0007500782988042026,
+        -3.504603242955279
+      ],
+      [
+        -0.0007500782988042026,
+        1.0101669044141375,
+        -2.1177236473754415
+      ]
+    ],
+    "background_inliers": 1500,
+    "note": "Automatic optical-flow clue, not hydraulic verification."
+  },
+  {
+    "scene": 3,
+    "time": 3.2,
+    "median_residual_pixels": [
+      6.069082318539472,
+      3.667360433097315
+    ],
+    "camera_affine": [
+      [
+        1.0080530920672988,
+        0.0064133941675580805,
+        -10.826904848685672
+      ],
+      [
+        -0.0064133941675580805,
+        1.0080530920672988,
+        -5.680387709944886
+      ]
+    ],
+    "background_inliers": 528,
+    "note": "Automatic optical-flow clue, not hydraulic verification."
+  },
+  {
+    "scene": 3,
+    "time": 4.0,
+    "median_residual_pixels": [
+      9.641624497763303,
+      7.25908780401096
+    ],
+    "camera_affine": [
+      [
+        1.005512081026709,
+        0.012638854645635529,
+        -18.163351873214452
+      ],
+      [
+        -0.012638854645635529,
+        1.005512081026709,
+        -4.922038946584409
+      ]
+    ],
+    "background_inliers": 464,
+    "note": "Automatic optical-flow clue, not hydraulic verification."
+  }
+]

@@ -224,7 +224,7 @@
     }
   ],
   "timing_note": "Scene cuts follow local PocketSphinx forced alignment of the supplied narration, at phrase pauses. Original voiceover retained in full; 70-second timeline includes a short ending hold.",
-  "revision": "V3 supplemental integration: five reviewed user-provided Flow shots; original wet-pour retained; no Blender or paid generation APIs.",
+  "revision": "V4 graphical explanation: moving river arrows and animated 726-foot height callout over reviewed original footage; v3 supplemental selections unchanged.",
   "caption_emphasis_terms": [
     "726-foot",
     "Colorado River",

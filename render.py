@@ -199,7 +199,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument('--video-dir', type=Path, default=Path('assets/video'))
     ap.add_argument('--voice', type=Path, default=Path('assets/audio/voiceover.wav'))
     ap.add_argument('--music', type=Path, default=Path('assets/audio/music.mp3'))
-    ap.add_argument('--output', type=Path, default=Path('output/revision_v3/final/rumy_why_002_v3_final.mp4'))
+    ap.add_argument('--output', type=Path, default=Path('output/revision_v4/final/rumy_why_002_v4.mp4'))
     ap.add_argument('--srt', type=Path, default=Path('captions_rough.srt'))
     ap.add_argument('--check', action='store_true', help='Validate structure and list missing media (returns success).')
     ap.add_argument('--no-captions', action='store_true')

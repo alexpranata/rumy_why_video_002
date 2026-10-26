@@ -123,3 +123,13 @@ python3 render.py --output output/revision_v3/final/rumy_why_002_v3_final.mp4
 ```
 
 The default output now points to that new final location. A report is written beside each export. Read `output/revision_v3/final/QA_final.md` for selections and remaining source limitations.
+
+## V4: animated graphical explanation
+
+Two verified screen-space graphics are enabled: curved river-flow arrows in scene 02 and an animated total-height bracket/counter in scene 14. Data and camera-fit keys live in `motion_graphics.json`. The published height is an illustrative callout, not a measurement computed from pixels.
+
+```bash
+python3 render.py --output output/revision_v4/final/rumy_why_002_v4.mp4
+```
+
+The v4 destination is the current default; all earlier exports remain intact. The short silent `output/revision_v4/graphics_showcase.mp4` shows both additions. See `output/revision_v4/final/QA_v4.md` for review windows and validation.

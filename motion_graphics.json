@@ -1,5 +1,5 @@
 {
-  "style_name": "RUMY WHY v3 \u2014 source-action-first edit",
+  "style_name": "RUMY WHY v4 \u2014 animated flow arrows and dam height dimension",
   "accent_color": "#FFD400",
   "secondary_text_color": "#F7F9FD",
   "shadow_color": "#0B1523",
@@ -20,16 +20,108 @@
     },
     {
       "scene": 2,
-      "type": "underline",
+      "type": "arrow",
       "label": "BLACK CANYON",
       "micro": "NEVADA / ARIZONA",
       "x": 0.16,
       "y": 0.46,
       "span": 345,
-      "geometry_verified": false,
-      "enter_sec": 0.35,
-      "hold_sec": 3.0,
-      "label_enabled": true
+      "geometry_verified": true,
+      "enter_sec": 0.6,
+      "hold_sec": 2.6,
+      "label_enabled": true,
+      "target_x": 0.55,
+      "target_y": 0.34,
+      "flow_path_keyframes": [
+        {
+          "time_sec": 0.6,
+          "points": [
+            [
+              0.51,
+              0.66
+            ],
+            [
+              0.52,
+              0.6
+            ],
+            [
+              0.46,
+              0.54
+            ],
+            [
+              0.45,
+              0.47
+            ],
+            [
+              0.52,
+              0.4
+            ],
+            [
+              0.55,
+              0.34
+            ]
+          ]
+        },
+        {
+          "time_sec": 1.433333,
+          "points": [
+            [
+              0.52,
+              0.66
+            ],
+            [
+              0.53,
+              0.61
+            ],
+            [
+              0.46,
+              0.54
+            ],
+            [
+              0.46,
+              0.47
+            ],
+            [
+              0.53,
+              0.4
+            ],
+            [
+              0.56,
+              0.34
+            ]
+          ]
+        },
+        {
+          "time_sec": 3.2,
+          "points": [
+            [
+              0.54,
+              0.66
+            ],
+            [
+              0.54,
+              0.61
+            ],
+            [
+              0.47,
+              0.54
+            ],
+            [
+              0.47,
+              0.47
+            ],
+            [
+              0.54,
+              0.4
+            ],
+            [
+              0.57,
+              0.34
+            ]
+          ]
+        }
+      ],
+      "geometry_review": "River centerline reviewed against timeline frames 5.4, 6.2, 7.0, 7.8s. Direction follows the observed upstream-screen texture drift after camera compensation; arrows are illustrative, not measured water velocity."
     },
     {
       "scene": 3,
@@ -213,16 +305,47 @@
     },
     {
       "scene": 14,
-      "type": "reticle",
+      "type": "measure_v",
       "label": "HOOVER DAM",
       "micro": "AN ENGINEERING GIANT",
       "x": 0.62,
       "y": 0.52,
       "radius": 118,
-      "geometry_verified": false,
-      "enter_sec": 1.3,
-      "hold_sec": 3.0,
-      "label_enabled": true
+      "geometry_verified": true,
+      "enter_sec": 0.8,
+      "hold_sec": 2.4,
+      "label_enabled": true,
+      "dimension_keyframes": [
+        {
+          "time_sec": 0.8,
+          "x": 0.21,
+          "top_y": 0.234,
+          "bottom_y": 0.58,
+          "label_x": 0.35
+        },
+        {
+          "time_sec": 1.6,
+          "x": 0.21,
+          "top_y": 0.269,
+          "bottom_y": 0.627,
+          "label_x": 0.35
+        },
+        {
+          "time_sec": 2.6,
+          "x": 0.21,
+          "top_y": 0.33,
+          "bottom_y": 0.729,
+          "label_x": 0.35
+        },
+        {
+          "time_sec": 3.2,
+          "x": 0.21,
+          "top_y": 0.37,
+          "bottom_y": 0.782,
+          "label_x": 0.35
+        }
+      ],
+      "geometry_review": "Reviewed crest and apparent lower-face levels at timeline 63.0-66.0s, fitted for camera movement. Published total height includes foundation; bracket is an illustrative callout, not a pixel-calibrated survey."
     }
   ],
   "text_layout": {
