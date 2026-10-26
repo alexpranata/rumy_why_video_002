@@ -44,5 +44,19 @@ class RenderHelpers(unittest.TestCase):
         self.assertIn('[vout]',graph)
         self.assertIn('[aout]',graph)
 
+    def test_caption_emphasis_preserves_words(self):
+        with tempfile.TemporaryDirectory() as d:
+            dest=Path(d)/'captions.ass'
+            render.write_ass(dest,[(0,2,'Chilled water flows.'),(2,5,'Engineers circulated chilled water')],[],1080,1920,5,
+                             emphasis_terms=['chilled water'])
+            text=dest.read_text()
+            self.assertIn(r'{\1c&H0000D4FF&}Chilled water{\1c&H00FDF9F7&} flows.',text)
+            self.assertIn(r'\N{\1c&H0000D4FF&}chilled water',text)
+
+    def test_detail_crop_bounds(self):
+        scenes=[dict(target_duration_sec=3,detail_crop=[.8,.8,.5,.5])]
+        with self.assertRaises(ValueError):
+            render.build_filter(scenes,30,1080,1920,1,None,None,3)
+
 if __name__=='__main__':
     unittest.main()

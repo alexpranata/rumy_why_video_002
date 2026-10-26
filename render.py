@@ -89,7 +89,8 @@ def line_wrap(s: str, n: int = 27) -> str:
 
 
 def write_ass(path: Path, captions: list[tuple[float, float, str]],
-              scenes: list[dict[str, Any]], w: int, h: int, total: float) -> None:
+              scenes: list[dict[str, Any]], w: int, h: int, total: float,
+              emphasis_terms: list[str] | None = None) -> None:
     size = max(19, round(64 * w / 1080))
     c_margin = round(h * .22)
     t_margin = round(h * .24)
@@ -103,7 +104,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Narration,DejaVu Sans,{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.085))},1,2,{int(w*.075)},{int(w*.075)},{c_margin},1
+Style: Narration,DejaVu Sans,{size},&H00FDF9F7,&H00FDF9F7,&H0023150B,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.085))},1,2,{int(w*.075)},{int(w*.075)},{c_margin},1
 Style: Callout,DejaVu Sans,{max(17, int(size*1.10))},&H0000D4FF,&H0000D4FF,&H0023150B,&H60000000,-1,0,0,0,100,100,1,0,1,{max(2, round(size*.09))},1,8,{int(w*.07)},{int(w*.07)},{t_margin},1
 
 [Events]
@@ -113,7 +114,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     for start, end, content in captions:
         start, end = max(0, start), min(total, end)
         if end > start:
-            lines.append(f'Dialogue: 0,{ass_time(start)},{ass_time(end)},Narration,,0,0,0,,{line_wrap(content)}\n')
+            text=line_wrap(content)
+            if emphasis_terms:
+                pattern=r'(?<!\w)('+'|'.join(re.escape(t) for t in sorted(emphasis_terms,key=len,reverse=True) if t)+r')(?!\w)'
+                text=r'\N'.join(re.sub(pattern,lambda m:r'{\1c&H0000D4FF&}'+m.group(0)+r'{\1c&H00FDF9F7&}',
+                                      part,flags=re.I) for part in text.split(r'\N'))
+            lines.append(f'Dialogue: 0,{ass_time(start)},{ass_time(end)},Narration,,0,0,0,,{text}\n')
     at = 0.0
     for sc in scenes:
         d = float(sc['target_duration_sec'])
@@ -138,7 +144,13 @@ def build_filter(scenes: list[dict[str, Any]], fps: int, w: int, h: int,
         dur = float(sc['target_duration_sec'])
         offset = float(sc.get('trim_start_sec', 0))
         base = (f'[{i}:v]trim=start={offset:.4f}:duration={dur:.4f},'
-                f'setpts=PTS-STARTPTS,fps={fps},'
+                f'setpts=PTS-STARTPTS,fps={fps}')
+        if 'detail_crop' in sc:
+            x,y,cw,ch=map(float,sc['detail_crop'])
+            if not (0<=x<1 and 0<=y<1 and 0<cw<=1 and 0<ch<=1 and x+cw<=1 and y+ch<=1):
+                raise ValueError('detail_crop must fit inside the original frame')
+            base+=f',crop=w=trunc(iw*{cw}/2)*2:h=trunc(ih*{ch}/2)*2:x=trunc(iw*{x}/2)*2:y=trunc(ih*{y}/2)*2'
+        base += (','
                 f'scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,'
                 f'crop={w}:{h},setsar=1')
         motion = sc.get('camera_motion', '').lower()
@@ -179,7 +191,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument('--video-dir', type=Path, default=Path('assets/video'))
     ap.add_argument('--voice', type=Path, default=Path('assets/audio/voiceover.wav'))
     ap.add_argument('--music', type=Path, default=Path('assets/audio/music.mp3'))
-    ap.add_argument('--output', type=Path, default=Path('output/revision_v2/rumy_why_002_v2.mp4'))
+    ap.add_argument('--output', type=Path, default=Path('output/revision_v3/rumy_why_002_v3.mp4'))
     ap.add_argument('--srt', type=Path, default=Path('captions_rough.srt'))
     ap.add_argument('--check', action='store_true', help='Validate structure and list missing media (returns success).')
     ap.add_argument('--no-captions', action='store_true')
@@ -290,7 +302,8 @@ def main() -> int:
         global CALL_OUTS
         if args.no_callouts or motion_name:
             CALL_OUTS = {}  # Avoid duplicated statistics when animated graphics already show them.
-        write_ass(staging/'captions.ass',captions,scenes,args.width,args.height,total)
+        write_ass(staging/'captions.ass',captions,scenes,args.width,args.height,total,
+                  emphasis_terms=data.get('caption_emphasis_terms'))
         ass_name = '_build/captions.ass'
     cmd = [ffmpeg,'-hide_banner','-y']
     for path in videos:

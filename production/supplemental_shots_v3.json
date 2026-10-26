@@ -1,0 +1,48 @@
+{
+  "mode": "manual_google_flow_only",
+  "paid_generation_api_calls": false,
+  "items": [
+    {
+      "scene": 11,
+      "filename": "assets/supplemental/scene_11_cooling_action_v3.mp4",
+      "priority": "priority_1",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    },
+    {
+      "scene": 3,
+      "filename": "assets/supplemental/scene_03_diversion_action_v3.mp4",
+      "priority": "priority_2",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    },
+    {
+      "scene": 10,
+      "filename": "assets/supplemental/scene_10_block_growth_v3.mp4",
+      "priority": "priority_3",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    },
+    {
+      "scene": 9,
+      "filename": "assets/supplemental/scene_09_concrete_pour_v3.mp4",
+      "priority": "optional",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    },
+    {
+      "scene": 6,
+      "filename": "assets/supplemental/scene_06_dry_worksite_v3.mp4",
+      "priority": "optional",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    },
+    {
+      "scene": 2,
+      "filename": "assets/supplemental/scene_02_black_canyon_v3.mp4",
+      "priority": "optional",
+      "status": "not_generated_not_included",
+      "requested_duration_sec": 8
+    }
+  ]
+}
