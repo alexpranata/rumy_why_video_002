@@ -1,88 +1,122 @@
 ---
 name: rumy-why-video-editing
-description: Create, edit, and quality-check RUMY WHY engineering, megastructure, ancient engineering, and extraordinary-construction YouTube Shorts in Codex. Use when planning shots, building or modifying FFmpeg editing pipelines, rendering Google Flow and ElevenLabs assets, adding animated yellow technical annotations, captions, cinematic camera moves, or reviewing finished RUMY WHY videos. Do not apply to unrelated channels without an explicit request.
+description: Plan, edit, animate, validate, and version RUMY WHY engineering, megastructure, ancient-engineering, and extraordinary-construction Shorts. Use for Google Flow footage, ElevenLabs narration, editorial camera moves, verified yellow engineering overlays, source-aware measurements, offline FFmpeg rendering, and production QA. Not a generic channel template.
 ---
 
-# RUMY WHY — Video Editing & Motion Graphics
+# RUMY WHY — Engineering Video Editing
 
-Make every RUMY WHY engineering Short feel like a fast, premium documentary with clean Adobe After Effects–style motion design. Treat these as **channel-wide defaults**, not footage-specific instructions. Adapt shot timing, visual positions and technical labels to each video. Implement the design with tools available in the actual workspace (FFmpeg/libass, Python, After Effects, etc.); do **not** require Adobe After Effects unless a native `.aep` deliverable is requested.
+## Mission and boundaries
 
-## 1. Brand identity (non-negotiable unless user changes it)
+Produce a dynamic, concise engineering documentary, not a generic motion-graphics slideshow. **The current episode workspace and approved sources are the source of truth.** Preserve working code and approved edits; prefer small reversible patches to replacing the renderer. A verified past implementation is a useful example, not proof that a feature works in another shot.
 
-- Accent: **Engineering Yellow `#FFD400`** — the *only* saturated accent on arrows, animated rings/reticles, measurement lines, numeric highlights, callout underlines, and technical indicators.
-- Supporting text: **Off-white `#F7F9FD`**; dark outline/shadow: **`#0B1523`**. Keep technical graphics minimal and legible on bright or dark footage.
-- Color grading: cinematic yet realistic; consistent contrast and white balance across clips. Avoid random green/red/blue neon annotations and cluttered effects. Natural colors in footage are fine.
-- Typeface: a bold modern sans-serif with clear digits. Use a licensed/system font and deterministic fallbacks; never assume a proprietary font is installed.
-- Identity: clean 2D technical annotations **on top of** cinematic construction footage; graphics explain real engineering, not merely decorate.
+**Channel-wide rules:** purposeful engineering storytelling, accurate facts, restrained high-contrast brand graphics, faithful footage, synchronized narration, reproducible exports, and explicit human review of uncertain geometry.
 
-## 2. Default format and source media
+**Never:** silently replace supplied media; call paid video-generation APIs; claim fixed coordinates are tracking; present AI reconstruction as authentic archive footage; imply an illustrative bracket measures a hidden physical foundation; publish rights-uncleared material; or overwrite an approved export without explicit direction.
 
-- Platform: vertical YouTube Shorts **9:16, 1080×1920, 30 fps, H.264/AAC MP4**; aim for approximately 60–70 seconds *when the project's approved script supports it*. Follow the specific episode's requested length if different.
-- Narration: English **ElevenLabs** documentary voice, aimed at US/global audiences. Preserve intelligibility; music and sound effects must never compete with the voice.
-- Video sources: **Google Flow 8-second generated clips**, select engaging **3–5 second portions** for most shots. Do not impose a rigid five seconds where narration or action requires something else.
-- Apply varied purposeful camera movement: selective fast push-in/pull-out, smooth digital pans, tracking, crane/aerial motion, match cuts, and rare speed ramps. Avoid zooming *every* scene or visible artifacts from over-cropping.
-- Work only with supplied/licensed media. **Do not call billable video-generation APIs**; the user generates Google Flow footage manually and places it in `assets/`. Never silently invent an asset, synthesize fake source footage, or claim a completed render if mandatory files are missing.
+The user manually generates Google Flow footage and places it in assets. ElevenLabs voice recordings are provided or created through an expressly authorized workflow. Use local/offline editing tools and available assets only. Do not spend additional API credits unless explicitly authorized.
 
-## 3. Upper-center typography and safe-zone rules
+## 1. Decide which motion is requested
 
-- Default main text is **upper-center**, not floating per object: horizontally centered at x=0.50 and positioned around y=0.125 of a 1080×1920 frame (roughly 240 px from top). Check against the actual YouTube Shorts top UI; adjust 180–250 px as needed.
-- Make the main technical title **10–15% larger** than the prior version; the Hoover Dam implementation increases 56 px to 64 px. Set secondary micro labels around 30 px, below the title, centered on the same x-axis.
-- Preserve the proven font, yellow `#FFD400` headline, and white supporting text. Break overlong headings into 2 lines or reduce size slightly; do not overfill the upper 88% content width.
-- Use a restrained 0.2–0.35 s fade and ~18 px vertical rise for title entrance, avoid jittery sideways movements.
-- Narration captions/subtitles remain near the **bottom**, separate from the engineering title. Avoid text overlap with moving subjects and platform UI. Inspect phone-sized preview for readability.
+"Make it move" has **three distinct meanings**. Identify the requested outcome before implementing; if materially ambiguous, clarify which type is desired. When context is sufficiently clear, proceed and state which types will be changed.
 
-## 4. Engineering motion-graphics grammar
+1. **Source-footage action** — water visibly flows, cranes lift, concrete pours, workers act. This must come from actually depicted source frames. A yellow arrow moving over static water is *not* evidence that the water itself moves. If missing, flag the shot for manual replacement/re-generation; do not fabricate moving historical action.
+2. **Editorial camera movement** — crop, dolly/push, pan, zoom, speed changes, shot selection, match cuts. Ensure movement supports the explanation and remains smooth after output cropping. Avoid constant zooms, distorted source reconstruction, and transitions unrelated to narration.
+3. **Explanatory graphical animation** — curved directional flow arrows, verified reticles, dimension drawing, counters, leader lines, headings, timelines, and diagrams. Graphics must relate to visible geometry or clearly identified illustrative concepts; their movement is distinct from motion in the source footage.
 
-Choose an annotation only when it helps explain the **specific visible object** or quantifiable fact in the scene:
+Make changes measurable in a short visual demonstration. A request for animated graphics is not satisfied by writing config that leaves them invisible because every target remains unverified.
 
-| Feature | What it communicates | Recommended behavior |
-|---|---|---|
-| Animated arrow / leader line | Engineering feature or direction of water, material, force | Yellow line draws toward a verified target; hold briefly, then exit |
-| Yellow ring / reticle | Identify a turbine, tunnel, machine, formwork, wall, pipe or other physical detail | Pop/scale in gently with short opacity fade; align around the target |
-| Dimension line / bracket | Height, width, depth, volume or scale | Animate line draw with endpoints; label with accurate units |
-| Underline / highlight | Place name, date, method, and key facts | Slide or draw on a short, readable phrase |
-| Large number + micro-label | One striking engineering measurement at a time | Bold yellow digits plus small white unit/context label |
+## 2. Visual identity and legibility
 
-- One primary callout at a time; at most two overlapping annotations when composition requires it.
-- Typical graphic entry: 0.2–0.5 s after a shot cut; entry animation around 0.2–0.35 s; keep long enough to read; exit before the next conflicting shot.
-- Use vector-quality 4–6 px equivalent strokes at 1080 px output, with restrained easing and minimal shadow. Tune thickness to actual footage.
-- Use **normalized screen coordinates (0–1)** in data templates where practical. Numbers and measurements must be sourced to a trustworthy reference and use correct units.
-- **Never misrepresent tracking**: fixed coordinates are not automatic object tracking. **Disable all unverified object geometry by default** (`geometry_verified: false`). Inspect real frames and align arrow endpoints/rings to objects actually visible; use time-varying keyframes or track targets when they move, then mark each scene verified. If a target is not visible, remove the shape entirely. No floating leader lines.
-- Stay out of the bottom approximately 20–22% UI/caption conflict zone where practical; check actual subtitle positions and YouTube overlays on phone. Keep key details, faces, machinery, and text from colliding.
-- Layering order: source footage → color/contrast → technical annotations → readable voice captions → platform-safe framing.
+- **Engineering Yellow:** `#FFD400` for annotations and numeric highlights. Supporting text `#F7F9FD`; contrast/shadow `#0B1523`. Maintain consistent grading but do not recolor the natural world neon yellow.
+- Adobe After Effects–inspired motion design is a **style target**, not a required .aep file. Implement using the tools available in the workspace (e.g. Python/FFmpeg/libass).
+- Typography: bold readable sans-serif with license-safe system fallbacks. Main explanatory headings **upper-center**, approximately x=0.5, y=0.125 in normalized output coordinates, adjustable for footage and Shorts UI. The established Hoover Dam title style uses ~64 px at 1080x1920; treat it as a tested reference, not a universal pixel requirement.
+- Entrance/exit: restrained fades and short positional easing; preserve a phone-readable hold. Avoid overly stiff full-screen line templates.
+- Captions are visually above technical graphics and must remain legible over real imagery. Lower caption safe zones, main title, and interactive platform UI must not overlap. Actual footage and platform-safe framing decide the final positions.
+- For each annotation, prioritize purpose, correct target, legibility, and the moment it is narrated. Use a small number of overlays rather than leaving moving decoration onscreen continuously.
 
-## 5. Pacing and storytelling
+## 3. Story structure and editorial selection
 
-1. **Hook (0–3 s):** immediately show an extraordinary construction visual and a concrete engineering mystery, preferably anchored by a real measurement.
-2. **Identify (3–12 s):** name the structure and location; establish scale and why construction was difficult.
-3. **Build sequence (main body):** show how the engineers solved the problem, in chronological or causal order. Include tools, sequence, obstacles, and specific measurements when supported.
-4. **Payoff (last 5–8 s):** show result, reveal scale and deliver one memorable verified fact. End decisively; no filler outro.
+Hook with the engineering mystery or surprising grounded measurement; establish **what / where / why difficult**; show **how it was built** in causal or chronological steps; reveal the result. Include dimensions, techniques, tools, obstacles, and numbers only when sourced and relevant.
 
-Prefer visible cause-and-effect over generic atmospheric montage. Translate each narration beat into a specific shot, annotation type, and timing. Use crisp cuts; transitions should have purpose.
+Select actual footage based on **both** visual attractiveness and action correctness. Favor shots demonstrating the narrated mechanical or physical process. Faster, newer, prettier, or AI-regenerated footage is not automatically better. Example: an alleged wet-concrete pouring shot depicting dry aggregate must be rejected for narration about a concrete pour.
 
-## 6. Codex execution workflow
+Use flexible shot lengths based on voice and action; 8-second Google Flow clips can supply shorter edited segments. Keep narration untruncated. Match cuts, restrained punch-ins/outs, and camera movement should serve the explanation rather than enforce identical five-second beats.
 
-1. Inspect the repository (`README.md`, `RUN.md`, `scenes.json`, existing renderer/tests and available media); use the current project's files as source of truth for episode details.
-2. Build or extend a **repeatable data-driven** render pipeline rather than hardcoding each episode. Keep visual tokens in a single config, prefer editable scene annotations (e.g. `motion_graphics.json`), and keep overlays separate from historical facts.
-3. Validate footage exists, duration/resolution and codec are readable, narration duration fits, and subtitle timestamps are aligned. Report missing assets specifically and stop before an impossible final render.
-4. Generate a low-resolution preview/contact sheet when assets exist. Position arrows, rings, and lines against **actual** footage frames; adjust and review overlaps at scene transitions.
-5. Render H.264/AAC MP4, preserve 9:16 framing, and run tests plus `ffprobe` sanity checks (resolution, fps, video/audio streams, duration). Where possible inspect representative frames and audio.
-6. Report exactly what was generated, what was tested, and what still requires human review. Do not confuse a synthetic-input smoke test with completion of the real video.
+## 4. Separate reusable policy from episode configuration
 
-If the episode already has `render.py`/`motion_graphics.py`/`motion_graphics.json`, **reuse and improve them** rather than replacing them unnecessarily. Do not mutate or overwrite the original assets. If Codex's command tool is unavailable, report that environment limitation explicitly; do not claim a successful build or test.
+**This SKILL.md holds channel policy and QA rules only.** Each episode owns its own configuration: subject and verified facts, script, target duration, number of scenes, source paths and selections, trim windows, crop/zoom, shot motion, overlay timing, annotations, measurement data, music, and output paths.
 
-## 7. Real photo overlays (optional, source-aware)
+Do **not** require exactly fourteen scenes, a seventy-second timeline, a specific dam measurement, or Hoover Dam animation windows in a general renderer or the channel skill. The v4 Hoover Dam `scenes.json` and `motion_graphics.json` are episode-specific examples, not portable defaults.
 
-- Use historical photos or engineering diagrams as **brief factual visual inserts**, not as decoration or fake footage. A tasteful photo overlay can appear as a short 1–3 second overlay with Ken Burns motion, subtle frame, and small readable source credit. Match historic context and chronology of the current scene.
-- For Hoover Dam, possible official starting points are the U.S. Bureau of Reclamation's historic photo gallery (https://www.usbr.gov/lc/hooverdam/gallery/historicviews.html) and modern photo collections (https://www.usbr.gov/lc/hooverdam/gallery/damviews.html). For other episodes, prefer corresponding government archives, museums, institutions or project operators.
-- **Inspect image-specific licensing/rights and attribute sources**. A government-hosted photo is not automatically safe for every use, and Library of Congress records can have undecided rights status. Do not assume blanket permission from being publicly viewable.
-- Do **not** scrape the web or use third-party rights-unclear photos silently. If source rights are unverified, provide a suggested source list instead and request locally supplied approved images. Keep existing user footage unchanged.
-- If the renderer does not support photo inserts yet, make that an explicit pipeline enhancement rather than pretending the images are in the export. Narration text and subtitles must remain legible above overlays.
+For every selected shot record, where feasible:
+- source path, original SHA-256, provenance/source type, license or authorization status;
+- selected time span and effective editorial transform (trim, crop, zoom, pan, resize, speed);
+- narration beat and intended physical action;
+- whether overlay geometry or measurement values have been approved for **this exact source and transform**.
 
-## 8. Historical accuracy, copyright and final QA
+Keep scene selections data-driven; do not implicitly substitute a different clip when an input is missing.
 
-- Verify names, dates, engineering methods, dimensions and numerical callouts from reputable sources; when uncertain, omit or qualify claims. Do not fabricate precise measurements for dramatic effect.
-- For historical reconstructions generated by AI, label/discuss them as illustrative when necessary; never falsely present them as authenticated historical footage.
-- Confirm all footage, audio and fonts are properly usable; avoid copyrighted music without rights.
-- Check: hook strength; clear structure/location; construction sequence; every arrow/ring targets the correct feature; `#FFD400` consistency; readable digits and captions on a phone; synced voice; no unintended black frames, cropping, cut-off words, or conflicting UI overlays.
-- Deliver the MP4 when actual inputs permit, plus editable configuration / project files and a concise QA summary.
+## 5. Verified motion-graphic geometry
+
+Permitted explanatory treatments include manually fitted **curved flow-path keyframes**, camera-fit dimensions, animated endpoint caps, counters, short heading reveals, underlines, and object callouts. Select the type that matches the scene.
+
+**Fail closed on object geometry:** unreviewed targets must not draw physical-object arrows, rings, leader lines, or brackets. A constant screen point is not motion tracking. Optical-flow analysis can help manual inspection; it does not prove 3D tracking, physical action, flow speed, or a true measurement.
+
+A geometry review must record:
+- the source file identity **and source hash**;
+- exact selected source time, effective trim, crop, zoom, speed and output mapping (or a canonical transform hash);
+- the target identity, direction and what is visibly depicted, with reviewed timestamp/frame evidence;
+- coordinates and camera-fit keyframes in the final output coordinate system;
+- reviewer, status, and the difference between illustration, manual fitting, and calibration.
+
+**Source-change invalidation:** replacing footage, switching supplemental clips, changing trim, crop, zoom, pan, speed, aspect transform, or output framing invalidates geometry verification. Disable affected geometric overlays until reviewed again and update the review record. Inactive or obsolete notes from a prior shot do not count as approval. Do not mark verified based on labels alone.
+
+Where the required graphic is blocked by unverified geometry: show the cause, produce a screenshot/short inspection preview, request or perform manual coordinate alignment, and render a **visible demonstration** once verified. Do not silently omit the feature and call the task finished.
+
+Reference from verified Hoover Dam v4: moving curved river arrows were keyed against viewed river/camera frames; a dam-height bracket used manual camera-fit keys. Neither constitutes automatic object tracking.
+
+## 6. Measurements, numeric counters and provenance
+
+Every displayed quantitative fact must include, in editable project data:
+- numerical source value and source reference/URL or citation;
+- display unit and conversion basis if converted;
+- intended rounding and precision; avoid implying false precision;
+- a clear measurement status: **published fact**, **illustrative overlay**, or **calibrated image/world measurement**;
+- for calibrated values: calibration method, reference baseline, error/uncertainty and review evidence.
+
+A counter may animate **to a sourced published value** without becoming a computed measurement. Do not map pixels to feet/meters unless genuinely calibrated. For illustrative dimensions, position a helpful line against a visible structure but disclose the visual bracket is illustrative if the published measurement includes invisible portions (e.g. a buried foundation). Never label movement speed as measured flow velocity without an actual measurement.
+
+Keep formulae, rounding rules and sourced values out of renderer constants where possible. Check all displayed conversions, label timing, unit consistency and fact provenance during QA.
+
+## 7. Supplemental footage and archival overlays
+
+Accept new material only after checking **subject match, construction stage, actual depicted physical action, time/chronology, orientation, image quality, and rights**. A replacement should improve factual fidelity, not merely look more cinematic. Keep original and candidate sources separately for comparison.
+
+For still photos, diagrams or historical archives, check **rights for each item** and record source URL, creator/owner, permission/license terms and required credit. A government website, image search hit, or historic appearance is not automatically a reuse license. A rights-cleared still can be inserted briefly with mild parallax/Ken Burns if appropriate, never as counterfeit moving historical footage. Prefer explicitly labeled archive imagery versus AI reconstructions.
+
+If external media is unapproved or licensing is unclear: leave it out, cite/source it as a candidate, and continue using the approved footage. Do not scrape and silently insert unlicensed photos.
+
+## 8. Review-to-export workflow (mandatory)
+
+1. **Inventory and inspection:** read actual skill, active episode files, renderer and tests; inspect assets and scene selections. Record source hashes. Check media decode, frame rate, duration and narration. **Inspection is not a strict pass.** If a CLI `--check` exits 0 with missing prerequisites, do an independent mandatory-input check and block master rendering until satisfied.
+2. **Short feature showcase:** render a compact demonstration of each newly requested feature (e.g. moving flow arrow and a drawing bracket/counter). Inspect entry, middle, exit and target adherence at frame-level or short playback. Iterate until the animation is visibly present and correctly placed.
+3. **Full-timeline preview:** render in a **versioned, isolated** preview output and staging directory; inspect all cuts, shots, graphic collisions, captions, audio transitions and motion continuity. No unreviewed factual geometry.
+4. **Master render:** export to a new version-specific destination and staging directory. Never rely on FFmpeg `-y` to protect existing files. Refuse an existing output unless the user has explicitly authorized overwriting that particular version.
+5. **Verify and derive:** full decode, FFprobe streams/duration/resolution/fps, black/silent interval checks where appropriate, subtitle/voice timing, audio clipping and end-of-narration. Record source and export SHA-256 hashes. When making a downloadable preview/showcase from the verified master, record its exact source master hash and derivation command.
+6. **Three explicit sign-offs:** (a) technical tests + media validity; (b) visual/engineering accuracy, overlays, safe zones and storytelling; (c) listening review at normal speed for voice, music and caption alignment. Do not treat test-count success as visual or listening approval.
+
+**Concurrent rendering:** jobs must use unique temporary/caption/motion/intermediate paths per job. If the implementation shares staging files, do not launch preview and master concurrently. Serial rendering alone is a workaround, not a concurrency fix.
+
+**Reproducibility manifest:** capture version/commit, renderer/config hashes, source hashes, trim/transforms, FFmpeg version, invoked command, output path/hash, test results, manual geometry review and QA sign-offs. Preserve previous source files and approved masters as immutable baselines.
+
+## 9. Renderer compatibility and honesty
+
+Never infer that a CLI flag removes all visible graphics without inspecting the real output. Check each layer independently (headline text, caption-borne numeric callouts, vector geometry, advanced geometry and counters). Document the effective behavior and offer a known-safe layer combination or a tested fix.
+
+For the **Hoover Dam v4 adapter**, consult `production/V4_TECHNICAL_DEBT.md` and `output/revision_v4/final/QA_v4.md`. At the time of its v4 review, the renderer still has: a non-strict `--check`, layer-disable flag inconsistencies, overwrite-prone FFmpeg output, shared staging files, fourteen-scene assumptions and geometry notes not bound to source/crop hashes. **These are known defects or limitations, not desired channel standards.** Do not represent them as solved until code and tests demonstrate the fixes.
+
+Implement and validate behavior changes in the episode-specific renderer before promoting them to reusable automation. Make changes in a branch or reversible patch; preserve current v4 visual outcomes unless a deliberate change is requested.
+
+## 10. Handoff
+
+Provide a concise production report: exact inputs used, source-selection rationale, types of motion delivered, verified versus illustrative graphics, measurement references, rights status, generated previews/master paths, commands, hashes, checks and remaining issues. Explain any human QA still outstanding. Never report a real-media render or human sign-off that did not happen.
