@@ -6,43 +6,56 @@
       "scene": 11,
       "filename": "assets/supplemental/scene_11_cooling_action_v3.mp4",
       "priority": "priority_1",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "selected_in_final",
+      "requested_duration_sec": 8,
+      "trim_start_sec": 0.8,
+      "received_duration_sec": 8
     },
     {
       "scene": 3,
       "filename": "assets/supplemental/scene_03_diversion_action_v3.mp4",
       "priority": "priority_2",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "selected_in_final",
+      "requested_duration_sec": 8,
+      "trim_start_sec": 2.2,
+      "received_duration_sec": 8
     },
     {
       "scene": 10,
       "filename": "assets/supplemental/scene_10_block_growth_v3.mp4",
       "priority": "priority_3",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "selected_in_final",
+      "requested_duration_sec": 8,
+      "trim_start_sec": 1.2,
+      "received_duration_sec": 8
     },
     {
       "scene": 9,
       "filename": "assets/supplemental/scene_09_concrete_pour_v3.mp4",
       "priority": "optional",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "reviewed_not_selected",
+      "requested_duration_sec": 8,
+      "reason": "Visible dry stones/aggregate falling from bucket; retained original scene_09 for wet concrete narration.",
+      "received_duration_sec": 8
     },
     {
       "scene": 6,
       "filename": "assets/supplemental/scene_06_dry_worksite_v3.mp4",
       "priority": "optional",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "selected_in_final",
+      "requested_duration_sec": 8,
+      "trim_start_sec": 2.7,
+      "received_duration_sec": 8
     },
     {
       "scene": 2,
       "filename": "assets/supplemental/scene_02_black_canyon_v3.mp4",
       "priority": "optional",
-      "status": "not_generated_not_included",
-      "requested_duration_sec": 8
+      "status": "selected_in_final",
+      "requested_duration_sec": 8,
+      "trim_start_sec": 1.0,
+      "received_duration_sec": 8
     }
-  ]
+  ],
+  "final_output": "output/revision_v3/final/rumy_why_002_v3_final.mp4"
 }

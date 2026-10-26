@@ -1,0 +1,128 @@
+[
+  {
+    "path": "assets/supplemental/scene_02_black_canyon_v3.mp4",
+    "duration": 8.0,
+    "sha256": "395411d1cc4f3b18b6256e2fc97703eed1d0d789f308347e3e4813bcb0cf23d0",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "path": "assets/supplemental/scene_03_diversion_action_v3.mp4",
+    "duration": 8.0,
+    "sha256": "14f181f0675cdd96ccff8492380c5533505b4dbf543a95a85e7bae900e2aad8f",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "path": "assets/supplemental/scene_06_dry_worksite_v3.mp4",
+    "duration": 8.0,
+    "sha256": "44bf6b46a04f34253d28ea5a53c625b6b2228e1dfb696b61234b72a13b348739",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "path": "assets/supplemental/scene_09_concrete_pour_v3.mp4",
+    "duration": 8.0,
+    "sha256": "b636f8f7c62c9e3d86b08b8901c7c74b6a52a91233872f453b9fc711dadae5a4",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "path": "assets/supplemental/scene_10_block_growth_v3.mp4",
+    "duration": 8.0,
+    "sha256": "26f31dda710cc8d67706a6b391432ca74b3c2d929c4d482760c04b54f70cf4c0",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "path": "assets/supplemental/scene_11_cooling_action_v3.mp4",
+    "duration": 8.0,
+    "sha256": "6bf7f8f4911abb258356a74408dabb11128f2231d3fa4f2738448ffd55db14de",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920,
+        "r_frame_rate": "24/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0"
+      }
+    ]
+  }
+]

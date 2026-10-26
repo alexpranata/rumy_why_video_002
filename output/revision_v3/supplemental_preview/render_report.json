@@ -1,0 +1,147 @@
+{
+  "project": "RUMY WHY | Video 002 | Hoover Dam",
+  "output": "/workspace/rumy_why_video_002/output/revision_v3/supplemental_preview/rumy_why_002_v3_supplemental_preview.mp4",
+  "output_duration_sec": 70.0,
+  "target_duration_sec": 70.0,
+  "voice_duration_sec": 69.251,
+  "dimensions": "540x960",
+  "fps": 30,
+  "clips": [
+    {
+      "scene": 1,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_01.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 0.8,
+      "trim_end_sec": 5.566666666666666,
+      "timeline_duration_sec": 4.766666666666667,
+      "camera_motion": "fast zoom in"
+    },
+    {
+      "scene": 2,
+      "path": "/workspace/rumy_why_video_002/assets/supplemental/scene_02_black_canyon_v3.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.0,
+      "trim_end_sec": 5.566666666666666,
+      "timeline_duration_sec": 4.566666666666666,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 3,
+      "path": "/workspace/rumy_why_video_002/assets/supplemental/scene_03_diversion_action_v3.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 2.2,
+      "trim_end_sec": 6.433333333333334,
+      "timeline_duration_sec": 4.233333333333333,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 4,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_04.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.3,
+      "trim_end_sec": 5.333333333333333,
+      "timeline_duration_sec": 4.033333333333333,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 5,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_05.mp4",
+      "source_duration_sec": 6.016,
+      "trim_start_sec": 0.45,
+      "trim_end_sec": 5.116666666666667,
+      "timeline_duration_sec": 4.666666666666667,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 6,
+      "path": "/workspace/rumy_why_video_002/assets/supplemental/scene_06_dry_worksite_v3.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 2.7,
+      "trim_end_sec": 7.733333333333333,
+      "timeline_duration_sec": 5.033333333333333,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 7,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_07.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.0,
+      "trim_end_sec": 5.133333333333334,
+      "timeline_duration_sec": 4.133333333333334,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 8,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_08.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 0.7,
+      "trim_end_sec": 5.9,
+      "timeline_duration_sec": 5.2,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 9,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_09.mp4",
+      "source_duration_sec": 6.016,
+      "trim_start_sec": 0.15,
+      "trim_end_sec": 5.583333333333334,
+      "timeline_duration_sec": 5.433333333333334,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 10,
+      "path": "/workspace/rumy_why_video_002/assets/supplemental/scene_10_block_growth_v3.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.2,
+      "trim_end_sec": 5.633333333333334,
+      "timeline_duration_sec": 4.433333333333334,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 11,
+      "path": "/workspace/rumy_why_video_002/assets/supplemental/scene_11_cooling_action_v3.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 0.8,
+      "trim_end_sec": 5.566666666666666,
+      "timeline_duration_sec": 4.766666666666667,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 12,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_12.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.0,
+      "trim_end_sec": 6.3,
+      "timeline_duration_sec": 5.3,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 13,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_13.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 1.8,
+      "trim_end_sec": 7.633333333333333,
+      "timeline_duration_sec": 5.833333333333333,
+      "camera_motion": "source camera movement only"
+    },
+    {
+      "scene": 14,
+      "path": "/workspace/rumy_why_video_002/assets/video/scene_14.mp4",
+      "source_duration_sec": 8.0,
+      "trim_start_sec": 0.3,
+      "trim_end_sec": 7.8999999999999995,
+      "timeline_duration_sec": 7.6,
+      "camera_motion": "zoom out"
+    }
+  ],
+  "warnings": [
+    "Captions use local forced-alignment estimates. Confirm timing by listening before publication.",
+    "Animated annotations are editorial placements, not object tracked. Check that arrows/rings point at visible features.",
+    "No licensed music file found; voiceover-only audio will be rendered."
+  ],
+  "captions": "phrase-timed SRT burned in",
+  "music_used": false,
+  "motion_graphics": "yellow ASS overlays",
+  "motion_graphics_config": "/workspace/rumy_why_video_002/motion_graphics.json",
+  "annotation_warning": "Positions are not tracked: verify every arrow, ring, and bracket against real footage."
+}

@@ -74,14 +74,14 @@
       "scene": 6,
       "type": "arrow",
       "label": "COFFERDAMS",
-      "micro": "DRY CONSTRUCTION ZONE",
+      "micro": "AI RECONSTRUCTION \u00b7 COFFERDAMS",
       "x": 0.21,
       "y": 0.44,
       "target_x": 0.66,
       "target_y": 0.63,
       "geometry_verified": false,
       "enter_sec": 0.5,
-      "hold_sec": 1.6,
+      "hold_sec": 4.2,
       "label_enabled": true
     },
     {

@@ -42,6 +42,14 @@ def seconds(data: dict[str, Any]) -> float:
     return float(data.get('format', {}).get('duration') or 0)
 
 
+def scene_video_path(scene: dict[str, Any], project: Path, video_dir: Path) -> Path:
+    source=scene.get('source_path')
+    if source:
+        path=Path(source)
+        return (path if path.is_absolute() else project/path).resolve()
+    return (video_dir/str(scene['clip_filename'])).resolve()
+
+
 def ass_time(t: float) -> str:
     cs = max(0, round(t * 100))
     return f"{cs // 360000}:{cs // 6000 % 60:02}:{cs // 100 % 60:02}.{cs % 100:02}"
@@ -191,7 +199,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument('--video-dir', type=Path, default=Path('assets/video'))
     ap.add_argument('--voice', type=Path, default=Path('assets/audio/voiceover.wav'))
     ap.add_argument('--music', type=Path, default=Path('assets/audio/music.mp3'))
-    ap.add_argument('--output', type=Path, default=Path('output/revision_v3/rumy_why_002_v3.mp4'))
+    ap.add_argument('--output', type=Path, default=Path('output/revision_v3/final/rumy_why_002_v3_final.mp4'))
     ap.add_argument('--srt', type=Path, default=Path('captions_rough.srt'))
     ap.add_argument('--check', action='store_true', help='Validate structure and list missing media (returns success).')
     ap.add_argument('--no-captions', action='store_true')
@@ -223,7 +231,7 @@ def main() -> int:
         raise ValueError('Each target_duration_sec must be positive and trim_start_sec nonnegative')
     total = sum(float(s['target_duration_sec']) for s in scenes)
     video_dir, voice, music, output, srt, graphics_config = [relative(x) for x in (args.video_dir,args.voice,args.music,args.output,args.srt,args.graphics_config)]
-    videos = [video_dir / str(s['clip_filename']) for s in scenes]
+    videos = [scene_video_path(s,project,video_dir) for s in scenes]
     missing = [str(p.relative_to(project) if p.is_relative_to(project) else p) for p in [*videos, voice] if not p.is_file()]
     ffmpeg, ffprobe = shutil.which(args.ffmpeg), shutil.which(args.ffprobe)
     issues = []

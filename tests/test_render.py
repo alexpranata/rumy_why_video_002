@@ -58,5 +58,14 @@ class RenderHelpers(unittest.TestCase):
         with self.assertRaises(ValueError):
             render.build_filter(scenes,30,1080,1920,1,None,None,3)
 
+    def test_supplemental_source_override_preserves_original_fallback(self):
+        project=ROOT
+        original=dict(clip_filename='scene_11.mp4')
+        self.assertEqual(render.scene_video_path(original,project,project/'assets/video'),
+                         (project/'assets/video/scene_11.mp4').resolve())
+        selected=dict(original,source_path='assets/supplemental/scene_11_cooling_action_v3.mp4')
+        self.assertEqual(render.scene_video_path(selected,project,project/'assets/video'),
+                         (project/selected['source_path']).resolve())
+
 if __name__=='__main__':
     unittest.main()

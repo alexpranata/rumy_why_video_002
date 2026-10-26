@@ -41,7 +41,8 @@
       "era": "1931 before construction",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Historically accurate early-1930s aerial wide shot of Black Canyon before Hoover Dam, raw canyon walls with the free flowing Colorado River, dusty rugged Nevada Arizona desert terrain, slow sweeping drone-like virtual camera. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 0.0
+      "trim_start_sec": 1.0,
+      "source_path": "assets/supplemental/scene_02_black_canyon_v3.mp4"
     },
     {
       "id": 3,
@@ -55,7 +56,8 @@
       "era": "1931 explanatory visualization",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Clear informative engineering cutaway visualization showing how the Colorado River used to pass directly through a narrow Black Canyon, then highlight planned diversion pathways through rock on both banks; river current remains physically plausible. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 0.8
+      "trim_start_sec": 2.2,
+      "source_path": "assets/supplemental/scene_03_diversion_action_v3.mp4"
     },
     {
       "id": 4,
@@ -97,7 +99,8 @@
       "era": "1932\u20131933",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Early 1930s historical recreation of earthen upstream and downstream temporary cofferdams built in the canyon; the diverted river rushes into tunnel entrances while the work zone between barriers dries, animated progression with realistic hydraulics. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 2.8
+      "trim_start_sec": 2.7,
+      "source_path": "assets/supplemental/scene_06_dry_worksite_v3.mp4"
     },
     {
       "id": 7,
@@ -159,13 +162,8 @@
       "era": "1933\u20131935",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Ultra-clear historical engineering construction time-lapse showing the Hoover Dam rising block by block as vertical columns of interlocking concrete forms in an arch-gravity configuration, canyon cliffs fixed, no smooth monolithic single pour. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 0.7,
-      "detail_crop": [
-        0.05,
-        0.05,
-        0.9,
-        0.9
-      ]
+      "trim_start_sec": 1.2,
+      "source_path": "assets/supplemental/scene_10_block_growth_v3.mp4"
     },
     {
       "id": 11,
@@ -179,13 +177,8 @@
       "era": "1933\u20131935 engineering cutaway",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Technical photorealistic 3D cutaway inside a huge concrete block during Hoover Dam construction; dense network of thin steel cooling pipes embedded through concrete with chilled water flowing through, subdued blue tracing to clarify thermal engineering, no text. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 1.0,
-      "detail_crop": [
-        0.12,
-        0.18,
-        0.78,
-        0.78
-      ]
+      "trim_start_sec": 0.8,
+      "source_path": "assets/supplemental/scene_11_cooling_action_v3.mp4"
     },
     {
       "id": 12,
@@ -231,7 +224,7 @@
     }
   ],
   "timing_note": "Scene cuts follow local PocketSphinx forced alignment of the supplied narration, at phrase pauses. Original voiceover retained in full; 70-second timeline includes a short ending hold.",
-  "revision": "V3 source-action edit: original in-scene movement, selected detail views, selective headings and keyword captions. No Blender sequence or new generated footage.",
+  "revision": "V3 supplemental integration: five reviewed user-provided Flow shots; original wet-pour retained; no Blender or paid generation APIs.",
   "caption_emphasis_terms": [
     "726-foot",
     "Colorado River",

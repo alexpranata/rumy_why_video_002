@@ -2,7 +2,7 @@
 
 Tujuan: gerakan fisik menjadi bagian dari footage, seperti referensi Gateway Arch. Tidak memakai demo Blender atau menyalin footage referensi. Video Flow dibuat manual oleh pengguna; tidak ada panggilan API generasi berbayar.
 
-Preview v3 saat ini menggunakan aset yang sudah tersedia. Semua shot di bawah berstatus **belum dibuat / belum diunduh / belum dimasukkan**. Nama file adalah tujuan penyimpanan yang diusulkan, bukan klaim bahwa file sudah ada.
+Paket ini adalah permintaan produksi awal. Pembaruan: keenam klip telah diterima dari pengguna di `assets/supplemental/`. Lima dipilih untuk integrasi; klip penuangan baru disimpan tetapi tidak dipilih karena tampak berupa batu/agregat kering. Lihat `production/supplemental_shots_v3.json` dan `output/revision_v3/final/QA_final.md` untuk status serta pilihan edit terbaru.
 
 ## Cara produksi
 
