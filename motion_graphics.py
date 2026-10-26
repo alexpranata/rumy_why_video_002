@@ -215,7 +215,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             else:
                 lines.append(event(2,start,end,'Highlight',
                                    f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\fad(220,280)',geometry))
-        if with_labels:
+        if with_labels and annotation.get('label_enabled',True):
             label=text_safe(annotation['label']).upper()
             # Upper center title: constant placement, regardless of annotation geometry.
             # ASS alignment 8 = top-center; move vertically, without sideways jitter.

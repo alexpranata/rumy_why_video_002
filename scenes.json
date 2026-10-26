@@ -139,7 +139,13 @@
       "era": "1933",
       "camera_motion": "source camera movement only",
       "flow_prompt": "1933 Hoover Dam construction site with large cableway-supported concrete buckets carefully placing fresh concrete into organized square block formwork, men and 1930s-era cranes at work, close-to-wide reveal. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 0.15
+      "trim_start_sec": 0.15,
+      "detail_crop": [
+        0.08,
+        0.08,
+        0.84,
+        0.84
+      ]
     },
     {
       "id": 10,
@@ -153,7 +159,13 @@
       "era": "1933\u20131935",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Ultra-clear historical engineering construction time-lapse showing the Hoover Dam rising block by block as vertical columns of interlocking concrete forms in an arch-gravity configuration, canyon cliffs fixed, no smooth monolithic single pour. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 0.7
+      "trim_start_sec": 0.7,
+      "detail_crop": [
+        0.05,
+        0.05,
+        0.9,
+        0.9
+      ]
     },
     {
       "id": 11,
@@ -167,7 +179,13 @@
       "era": "1933\u20131935 engineering cutaway",
       "camera_motion": "source camera movement only",
       "flow_prompt": "Technical photorealistic 3D cutaway inside a huge concrete block during Hoover Dam construction; dense network of thin steel cooling pipes embedded through concrete with chilled water flowing through, subdued blue tracing to clarify thermal engineering, no text. Photorealistic cinematic historical engineering documentary, physically accurate Hoover Dam construction in Black Canyon, Colorado River, Nevada-Arizona border, early 1930s unless otherwise specified. Vertical 9:16, 4K detail, realistic geology, natural color grading, detailed period-accurate heavy machinery, natural motion, dramatic scale, no voice, no visible text, no logos, no watermark, no modern equipment, no modern bridges, no impossible architecture. Generate an 8-second continuous shot, preserving a clear center composition for vertical cropping.",
-      "trim_start_sec": 1.0
+      "trim_start_sec": 1.0,
+      "detail_crop": [
+        0.12,
+        0.18,
+        0.78,
+        0.78
+      ]
     },
     {
       "id": 12,
@@ -213,5 +231,21 @@
     }
   ],
   "timing_note": "Scene cuts follow local PocketSphinx forced alignment of the supplied narration, at phrase pauses. Original voiceover retained in full; 70-second timeline includes a short ending hold.",
-  "revision": "Hoover Dam Revision v2: original narration aligned cuts retained, later hook selection and selective opening/closing editorial moves."
+  "revision": "V3 source-action edit: original in-scene movement, selected detail views, selective headings and keyword captions. No Blender sequence or new generated footage.",
+  "caption_emphasis_terms": [
+    "726-foot",
+    "Colorado River",
+    "tunnels",
+    "cofferdams",
+    "bedrock",
+    "high scalers",
+    "concrete",
+    "interlocking blocks",
+    "chilled water",
+    "3.25",
+    "1933",
+    "1935",
+    "1936",
+    "Hoover Dam"
+  ]
 }

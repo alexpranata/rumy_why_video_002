@@ -16,6 +16,7 @@ class MotionGraphicsTests(unittest.TestCase):
         # Exercise the safe default independently of the reviewed production keys.
         for a in self.config['annotations']:
             a['geometry_verified']=False
+            a['label_enabled']=True
 
     def test_exact_yellow_brand(self):
         self.assertEqual(motion_graphics.ass_color('#FFD400'),'&H0000D4FF&')
@@ -69,6 +70,18 @@ class MotionGraphicsTests(unittest.TestCase):
         self.assertIn("ass=filename='_build/motion.ass'",graph)
         self.assertIn("ass=filename='_build/captions.ass'",graph)
         self.assertLess(graph.index('_build/motion.ass'),graph.index('_build/captions.ass'))
+
+    def test_selective_titles(self):
+        for a in self.config['annotations']:
+            a['label_enabled']=False
+        self.config['annotations'][0]['label_enabled']=True
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'motion.ass'
+            motion_graphics.write_motion_ass(p,self.config,self.scenes)
+            text=p.read_text()
+            self.assertIn('726 FEET',text)
+            self.assertNotIn('BLACK CANYON',text)
+            self.assertEqual(text.count('\\an8\\move('),1)
 
     def test_keyframed_geometry_requires_verification(self):
         c=json.loads(json.dumps(self.config))
