@@ -86,3 +86,7 @@ If the command tool fails **before any command starts**, troubleshoot or restart
 ## Reuse the channel-wide editing Skill
 
 This project now includes `.agents/skills/rumy-why-video-editing/SKILL.md`. When working with Codex in this extracted project, you can explicitly invoke `$rumy-why-video-editing` or ask it to edit RUMY WHY Shorts. To reuse in other projects, copy the *directory* `rumy-why-video-editing` (not just its contents) into `~/.agents/skills/` on the machine where Codex runs. Restart Codex if it does not discover a new skill.
+
+
+### Motion graphics revision v2
+Titles are 10–15% larger and placed at top-center. Unverified arrows, circles and measurement lines are disabled by default; add them back only after alignment/tracking review against actual footage. See `REFERENCE_OVERLAY_SOURCES.md` for possible authentic photo inserts and their rights caveats.

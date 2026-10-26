@@ -35,10 +35,11 @@ class MotionGraphicsTests(unittest.TestCase):
             self.assertIn('726 FEET', content)
             self.assertIn('4 TUNNELS', content)
             self.assertIn('HOOVER DAM', content)
-            self.assertIn('\\p1', content)
+            # Object graphic coordinates are placeholders, so no yellow shape is drawn before verification.
+            self.assertNotIn('\\p1', content)
             self.assertIn('&H0000D4FF&',content)
-            self.assertEqual(content.count('Highlight,,0,0,0,,{\\an7\\pos(0,0)'),14)
-            self.assertTrue(content.count('Dialogue:')>=28)
+            self.assertEqual(content.count('\\an8\\move(540,'),14)
+            self.assertTrue(content.count('Dialogue:')>=14)
 
     def test_no_text_labels(self):
         with tempfile.TemporaryDirectory() as d:
@@ -46,7 +47,18 @@ class MotionGraphicsTests(unittest.TestCase):
             motion_graphics.write_motion_ass(p,self.config,self.scenes,with_labels=False)
             content=p.read_text()
             self.assertNotIn('726 FEET', content)
-            self.assertEqual(content.count('Dialogue:'),14)
+            self.assertEqual(content.count('Dialogue:'),0)
+
+
+    def test_verified_geometry_is_rendered_only_for_selected_scene(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'graphic.ass'
+            c=json.loads(json.dumps(self.config))
+            c['annotations'][0]['geometry_verified']=True
+            motion_graphics.write_motion_ass(p,c,self.scenes)
+            content=p.read_text()
+            self.assertEqual(content.count('\\p1'),1)
+            self.assertIn('\\an8\\move(540,',content)
 
     def test_graphics_filter(self):
         graph=render.build_filter(self.scenes,30,1080,1920,14,None,

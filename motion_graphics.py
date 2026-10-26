@@ -101,6 +101,9 @@ def validate(config:dict) -> None:
         raise ValueError('motion_graphics.json must contain 14 annotations')
     if [int(a['scene']) for a in annotations] != list(range(1,15)):
         raise ValueError('annotation scene indices must be ordered 1..14')
+    layout=config.get('text_layout', {})
+    if layout and not (0.08 <= float(layout.get('anchor_y',.125)) <= .25):
+        raise ValueError('Top-center headline is outside the upper safe region')
     for a in annotations:
         if a.get('type') not in ('reticle','arrow','measure_v','measure_h','underline'):
             raise ValueError(f'Unrecognized overlay type {a.get("type")}')
@@ -122,6 +125,12 @@ def write_motion_ass(path:Path, config:dict, scenes:list[dict], width:int=1080,
     dark=ass_color(INK)
     sx,sy=width/1080,height/1920
     fscale=min(sx,sy)
+    layout=config.get('text_layout', {})
+    headline_font=int(layout.get('headline_font_size_px',64))
+    micro_font=int(layout.get('micro_font_size_px',30))
+    center_x=int(width*float(layout.get('anchor_x',0.5)))
+    top_y=int(height*float(layout.get('anchor_y',0.125)))
+    micro_gap=round(float(layout.get('micro_gap_px',74))*fscale)
     header=f'''[Script Info]
 Title: RUMY WHY engineering yellow motion graphics
 ScriptType: v4.00+
@@ -132,8 +141,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Highlight,DejaVu Sans,{round(56*fscale)},{accent},{accent},{dark},&H60000000,-1,0,0,0,100,100,1.4,0,1,{max(1,round(3*fscale))},1,7,40,40,0,1
-Style: Micro,DejaVu Sans,{round(27*fscale)},{white},{white},{dark},&H60000000,-1,0,0,0,100,100,1.3,0,1,{max(1,round(2*fscale))},1,7,40,40,0,1
+Style: Highlight,DejaVu Sans,{round(headline_font*fscale)},{accent},{accent},{dark},&H60000000,-1,0,0,0,100,100,1.4,0,1,{max(1,round(3*fscale))},1,7,40,40,0,1
+Style: Micro,DejaVu Sans,{round(micro_font*fscale)},{white},{white},{dark},&H60000000,-1,0,0,0,100,100,1.3,0,1,{max(1,round(2*fscale))},1,7,40,40,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -166,25 +175,26 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
             geometry=bracket(fx,fy,float(annotation.get('span',400))*sx,False,thickness)
         elif typ=='underline':
             geometry=bar(fx,fy,fx+float(annotation.get('span',290))*sx,fy,thickness)
-        # Signature: yellow tech annotation, appears before animated label.
-        lines.append(event(2,start,end,'Highlight',
-                           f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\fad(220,280)',geometry))
+        # Unverified draft coordinates must never produce misleading floating geometry.
+        if annotation.get('geometry_verified') is True:
+            lines.append(event(2,start,end,'Highlight',
+                               f'\\an7\\pos(0,0)\\p1\\bord0\\shad0\\1c{accent}\\fad(220,280)',geometry))
         if with_labels:
             label=text_safe(annotation['label']).upper()
-            tx=width*float(annotation.get('label_x',max(.09,float(annotation['x'])-.05)))
-            ty=height*float(annotation.get('label_y',max(.12,float(annotation['y'])-.13)))
-            # Staggered entry, subtle 22px horizontal motion + yellow highlight.
+            # Upper center title: constant placement, regardless of annotation geometry.
+            # ASS alignment 8 = top-center; move vertically, without sideways jitter.
             label_start=min(end-.32,start+.16)
             if label_start < end:
-                ms=min(250,max(70,round((end-label_start)*300)))
-                direction=int(22*fscale)
-                pos=(f'\\an7\\move({round(tx-direction)},{round(ty)},{round(tx)},{round(ty)},0,{ms})'
-                     f'\\fad(170,300)\\1c{accent}\\3c{dark}')
+                ms=min(300,max(100,round((end-label_start)*320)))
+                title_y=top_y
+                title_from=title_y+round(18*fscale)
+                pos=(f'\\an8\\move({center_x},{title_from},{center_x},{title_y},0,{ms})'
+                     f'\\fad(220,300)\\1c{accent}\\3c{dark}')
                 lines.append(event(3,label_start,end,'Highlight',pos,label))
             micro=annotation.get('micro')
             if micro:
                 lines.append(event(3,min(end-.25,start+.30),end,'Micro',
-                                   f'\\an7\\pos({round(tx)},{round(ty+64*fscale)})\\fad(240,270)\\1c{white}',
+                                   f'\\an8\\pos({center_x},{top_y+micro_gap})\\fad(240,270)\\1c{white}',
                                    text_safe(micro).upper()))
         cursor+=dur
     path.parent.mkdir(parents=True,exist_ok=True)

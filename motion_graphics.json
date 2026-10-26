@@ -1,23 +1,160 @@
 {
-  "style_name": "RUMY WHY Engineering Motion System v1",
+  "style_name": "RUMY WHY Engineering Motion System v2 — top centered titles + verified object graphics",
   "accent_color": "#FFD400",
   "secondary_text_color": "#F7F9FD",
   "shadow_color": "#0B1523",
-  "note": "Coordinates are normalized to the 9:16 frame. These are editorial placements, not object tracking. Inspect footage and adjust target_x/target_y so arrows and reticles point to real visible features before publication.",
+  "note": "Default annotations are TEXT ONLY. Verify each object with the real media, keyframe/track its geometry if it moves, then set geometry_verified=true for that scene. Never draw unverified arrows, measurements, or circles.",
   "annotations": [
-    {"scene": 1, "type": "measure_v", "label": "726 FEET", "micro": "DAM HEIGHT", "x": 0.17, "y": 0.53, "span": 465, "label_x": 0.28, "label_y": 0.36},
-    {"scene": 2, "type": "underline", "label": "BLACK CANYON", "micro": "NEVADA / ARIZONA", "x": 0.16, "y": 0.46, "span": 345, "label_x": 0.16, "label_y": 0.40},
-    {"scene": 3, "type": "arrow", "label": "DIVERT THE RIVER", "micro": "COLORADO RIVER", "x": 0.24, "y": 0.48, "target_x": 0.70, "target_y": 0.62, "label_x": 0.15, "label_y": 0.38},
-    {"scene": 4, "type": "reticle", "label": "TUNNEL EXCAVATION", "x": 0.65, "y": 0.56, "radius": 96, "label_x": 0.14, "label_y": 0.35},
-    {"scene": 5, "type": "measure_h", "label": "4 TUNNELS", "micro": "NEARLY 3 MILES TOTAL", "x": 0.51, "y": 0.65, "span": 590, "label_x": 0.20, "label_y": 0.47},
-    {"scene": 6, "type": "arrow", "label": "COFFERDAMS", "micro": "DRY CONSTRUCTION ZONE", "x": 0.21, "y": 0.44, "target_x": 0.66, "target_y": 0.63, "label_x": 0.13, "label_y": 0.33},
-    {"scene": 7, "type": "reticle", "label": "SOLID BEDROCK", "x": 0.61, "y": 0.65, "radius": 93, "label_x": 0.15, "label_y": 0.45},
-    {"scene": 8, "type": "measure_v", "label": "HIGH SCALERS", "micro": "CLIFFSIDE WORK", "x": 0.74, "y": 0.53, "span": 420, "label_x": 0.15, "label_y": 0.36},
-    {"scene": 9, "type": "reticle", "label": "CONCRETE POUR", "x": 0.65, "y": 0.53, "radius": 94, "label_x": 0.15, "label_y": 0.37},
-    {"scene": 10, "type": "measure_h", "label": "BLOCK BY BLOCK", "x": 0.52, "y": 0.64, "span": 550, "label_x": 0.14, "label_y": 0.48},
-    {"scene": 11, "type": "arrow", "label": "COOLING PIPES", "micro": "CHILLED WATER", "x": 0.23, "y": 0.46, "target_x": 0.71, "target_y": 0.59, "label_x": 0.14, "label_y": 0.33},
-    {"scene": 12, "type": "underline", "label": "3.25 MILLION YD³", "micro": "CONCRETE IN THE DAM", "x": 0.12, "y": 0.52, "span": 540, "label_x": 0.12, "label_y": 0.43},
-    {"scene": 13, "type": "underline", "label": "1936", "micro": "PROJECT COMPLETE", "x": 0.15, "y": 0.55, "span": 240, "label_x": 0.15, "label_y": 0.44},
-    {"scene": 14, "type": "reticle", "label": "HOOVER DAM", "micro": "AN ENGINEERING GIANT", "x": 0.62, "y": 0.52, "radius": 118, "label_x": 0.13, "label_y": 0.36}
-  ]
+    {
+      "scene": 1,
+      "type": "measure_v",
+      "label": "726 FEET",
+      "micro": "DAM HEIGHT",
+      "x": 0.17,
+      "y": 0.53,
+      "span": 465,
+      "geometry_verified": false
+    },
+    {
+      "scene": 2,
+      "type": "underline",
+      "label": "BLACK CANYON",
+      "micro": "NEVADA / ARIZONA",
+      "x": 0.16,
+      "y": 0.46,
+      "span": 345,
+      "geometry_verified": false
+    },
+    {
+      "scene": 3,
+      "type": "arrow",
+      "label": "DIVERT THE RIVER",
+      "micro": "COLORADO RIVER",
+      "x": 0.24,
+      "y": 0.48,
+      "target_x": 0.7,
+      "target_y": 0.62,
+      "geometry_verified": false
+    },
+    {
+      "scene": 4,
+      "type": "reticle",
+      "label": "TUNNEL EXCAVATION",
+      "x": 0.65,
+      "y": 0.56,
+      "radius": 96,
+      "geometry_verified": false
+    },
+    {
+      "scene": 5,
+      "type": "measure_h",
+      "label": "4 TUNNELS",
+      "micro": "NEARLY 3 MILES TOTAL",
+      "x": 0.51,
+      "y": 0.65,
+      "span": 590,
+      "geometry_verified": false
+    },
+    {
+      "scene": 6,
+      "type": "arrow",
+      "label": "COFFERDAMS",
+      "micro": "DRY CONSTRUCTION ZONE",
+      "x": 0.21,
+      "y": 0.44,
+      "target_x": 0.66,
+      "target_y": 0.63,
+      "geometry_verified": false
+    },
+    {
+      "scene": 7,
+      "type": "reticle",
+      "label": "SOLID BEDROCK",
+      "x": 0.61,
+      "y": 0.65,
+      "radius": 93,
+      "geometry_verified": false
+    },
+    {
+      "scene": 8,
+      "type": "measure_v",
+      "label": "HIGH SCALERS",
+      "micro": "CLIFFSIDE WORK",
+      "x": 0.74,
+      "y": 0.53,
+      "span": 420,
+      "geometry_verified": false
+    },
+    {
+      "scene": 9,
+      "type": "reticle",
+      "label": "CONCRETE POUR",
+      "x": 0.65,
+      "y": 0.53,
+      "radius": 94,
+      "geometry_verified": false
+    },
+    {
+      "scene": 10,
+      "type": "measure_h",
+      "label": "BLOCK BY BLOCK",
+      "x": 0.52,
+      "y": 0.64,
+      "span": 550,
+      "geometry_verified": false
+    },
+    {
+      "scene": 11,
+      "type": "arrow",
+      "label": "COOLING PIPES",
+      "micro": "CHILLED WATER",
+      "x": 0.23,
+      "y": 0.46,
+      "target_x": 0.71,
+      "target_y": 0.59,
+      "geometry_verified": false
+    },
+    {
+      "scene": 12,
+      "type": "underline",
+      "label": "3.25 MILLION YD³",
+      "micro": "CONCRETE IN THE DAM",
+      "x": 0.12,
+      "y": 0.52,
+      "span": 540,
+      "geometry_verified": false
+    },
+    {
+      "scene": 13,
+      "type": "underline",
+      "label": "1936",
+      "micro": "PROJECT COMPLETE",
+      "x": 0.15,
+      "y": 0.55,
+      "span": 240,
+      "geometry_verified": false
+    },
+    {
+      "scene": 14,
+      "type": "reticle",
+      "label": "HOOVER DAM",
+      "micro": "AN ENGINEERING GIANT",
+      "x": 0.62,
+      "y": 0.52,
+      "radius": 118,
+      "geometry_verified": false
+    }
+  ],
+  "text_layout": {
+    "anchor_x": 0.5,
+    "anchor_y": 0.125,
+    "headline_font_size_px": 64,
+    "micro_font_size_px": 30,
+    "micro_gap_px": 74,
+    "headline_max_width_fraction": 0.88,
+    "title_animation": "smooth slight vertical rise and fade",
+    "note": "Headline and micro label use upper central safe zone. Narration captions remain at bottom."
+  },
+  "geometry_policy": "Object annotations are OFF until editor verifies feature placement on the actual source frames. Fixed placeholder coordinates are not tracking.",
+  "archive_overlay_policy": "Optional: use images only after rights verified and source credited. Never present Google Flow recreation as genuine archive photography."
 }

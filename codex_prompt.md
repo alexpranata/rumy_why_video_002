@@ -25,3 +25,14 @@ If the command tool fails before executing **any** command, report the precise e
 The project now ships with editable `motion_graphics.py`, `motion_graphics.json`, and `MOTION_STYLE_GUIDE.md`. Keep the exact channel accent `#FFD400` across arrows, circles, highlight text and measurement lines. The renderer already composites the yellow vector ASS graphics.
 
 Read these files, run unit tests, and inspect motion effects in the final exported footage. **Do not rebuild the motion system unnecessarily**; adjust per-scene positions to real subject areas once media exists. Do not assume overlays are tracked automatically. Keep captions above graphics and avoid lower UI-safe zone.
+
+
+## REVISION v2: requested after first real render (priority)
+
+The user says the first render felt stiff. Main title is satisfactory in style but should be **10–15% larger and placed upper-center**. The v2 config/renderer already implements `text_layout` with a centered x=0.5, y=0.125, headline size=64 px (was 56) and micro=30 px. Keep bottom narration subtitles separately positioned.
+
+1. Audit pacing on actual user-provided Hoover Dam footage. Use expressive purposeful cuts, mild push-ins and occasional motion matches; avoid repetitive fixed-duration transitions or overbearing effects.
+2. **Do not enable unverified shapes**. `motion_graphics.json` defaults all `geometry_verified=false`, hiding the previous floating arrows/rings/brackets. Inspect actual frames; add reliable motion keyframes / object tracking for each shape before enabling it. If real feature is unclear, retain title only.
+3. For verified shape motion, modify drawing to follow **the footage object through time**, not just a fixed screen position; boolean `geometry_verified=true` alone does not implement tracking. Do not mark moving shots verified without keyframes/real tracking.
+4. For real-photo overlays, inspect `REFERENCE_OVERLAY_SOURCES.md`. Suggest/download only images with usage rights checked and keep provenance; do not assume Library of Congress media are all public domain. When possible, add brief 1–3 s relevant archival inserts with small credits. If the user has not supplied approved photos and licensing is unresolved, leave them out and report missing images instead.
+5. Run tests, create a lower-resolution preview and spot-check 4–5 representative frames before final rendering. Do not overwrite original source assets or confuse preview with final MP4.
